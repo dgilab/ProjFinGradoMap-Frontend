@@ -35,5 +35,7 @@ export default {
 
 	width: 60%;
 }
-
+.MapaExpojoveNivel2{
+	filter: var(--build-sombra-base);
+}
 </style>

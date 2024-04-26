@@ -9,6 +9,7 @@
 
 	--build-color-black: #000000;
 	--build-color-white: #ffffff;
+	--build-color-light-grey: #ececec;
 
 	--build-color-basePabellones: #ffffff;
 	--build-color-baseMapa: #d6d5d1;
@@ -24,15 +25,20 @@
 	--build-color-event-hover: #149f94;
 
 	
-	--build-sombra-base: 0px 1px 2px 4px #000000;
+	--build-sombra-base: drop-shadow( 1px 0px 10px #000000);
 	--build-transicion-principal: 0.4s cubic-bezier(0, 0.02, 1, 1.01);
 	--build-escalado-base: scale(1);
 	--build-transform-origin-hover: 40% 40%;
 }
+
+*{
+	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 body {
 	margin: 0;
 	padding: 0;
-	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	
 }
 
 .cls_1{

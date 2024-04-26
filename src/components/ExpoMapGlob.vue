@@ -1,7 +1,6 @@
 <template>
 	<div class="ExpoMapGlob">
 		<MapaExpojoveNivel2/>
-		<!-- <button @click="this.store.state.prueba = !this.store.state.prueba">Ocultar solo Grandes</button> -->
 	</div>
 </template>
 

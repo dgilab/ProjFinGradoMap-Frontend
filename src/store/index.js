@@ -650,6 +650,9 @@ export default createStore({
 		},
 		hoverActivo: false,
 		MMGrandes: true,
+		MostLabavos: false,
+		MostSalidaEmergencia: false,
+
 
 	},
 	mutations: {
@@ -670,6 +673,12 @@ export default createStore({
 		},
 		mostrarMP4(state, mostMP4){
 			state.MarcadoresGlobGrand.MP4.mostrado = mostMP4
+		},
+		mostrarLavabos(state, MostLabavos){
+			state.MostLabavos = MostLabavos
+		},
+		mostrarSalidaEmergencia(state, MostSalidaEmergencia){
+			state.MostSalidaEmergencia = MostSalidaEmergencia
 		},
 	},
 	actions: {
@@ -710,6 +719,17 @@ export default createStore({
 
 			}
 		},
+		mostrarInteres({ commit }, e) {
+			if(e.target.dataset.selector == 'lavPubli'){
+				const mostLavabos = !this.state.MostLabavos
+				commit('mostrarLavabos', mostLavabos)
+				
+			} else if (e.target.dataset.selector == 'salEmergen') {
+				const MostSalidaEmergencia = !this.state.MostSalidaEmergencia
+				commit('mostrarSalidaEmergencia', MostSalidaEmergencia)
+
+			}
+		},
 	},
 	getters: {
 		MCafep1: state => state.MarcP.MP1_2.MCafep1,
@@ -726,6 +746,8 @@ export default createStore({
 
 		MMGrandes: state => state.MMGrandes, // Mostrar o no lo marcadores grandes  en general
 		
+		MostLabavos: state => state.MostLabavos,
+		MostSalidaEmergencia: state => state.MostSalidaEmergencia,
 	},
 	modules: {
 	}
