@@ -16,8 +16,8 @@
 	--build-color-baseMapa: #d6d5d1;
 	--build-color-marcadores-grandes: #000000;
 	--build-color-marcadores-pequenos: #e7e7e7;
-	--build-color-escenarios: #f0ec2d;
-	--build-color-cafeteias: #fdbe18;
+	--build-color-escenarios: #fffb00;
+	--build-color-cafeteias: #ffb700;
 	--build-color-servicios: #6e91f8;
 	--build-color-stands: #257c68;
 	--build-color-salidasEmergencia: #23a55b;
