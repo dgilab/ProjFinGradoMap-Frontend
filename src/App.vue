@@ -23,9 +23,11 @@
 
 	--build-color-event-hover: #149f94;
 
-	--build-sombra-base: 0px 1px 2px 4px rgba(0, 0, 0, 0.2);
-
-	--build-transicion-principal: cubic-bezier(0, 0.02, 1, 1.01);
+	
+	--build-sombra-base: 0px 1px 2px 4px #000000;
+	--build-transicion-principal: 0.4s cubic-bezier(0, 0.02, 1, 1.01);
+	--build-escalado-base: scale(1);
+	--build-transform-origin-hover: 40% 40%;
 }
 body {
 	margin: 0;
@@ -33,7 +35,10 @@ body {
 	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.cls_1{fill: var(--build-color-marcadores-grandes);}
+.cls_1{
+	fill: var(--build-color-marcadores-grandes);
+	pointer-events: none;
+} // Marcadores Grandes
 .cls_2{fill: var(--build-color-stands);}
 .cls_3{fill: var(--build-color-salidasEmergencia);}
 .cls_4{fill: var(--build-color-escenarios);}
@@ -54,8 +59,9 @@ body {
 
 .hover_Base{
 	fill: var(--build-color-event-hover);
-	box-shadow: 1px var(--build-sombra-base);
-
+	box-shadow: var(--build-sombra-base);
+	transform: var(--build-escalado-base);
+	transform-origin: var(--build-transform-origin-hover);
 }
 
 

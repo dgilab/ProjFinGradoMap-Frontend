@@ -1,6 +1,6 @@
 <template>
 	<g id="MPG">
-		<g v-for="marcador in marcadores" :key="marcador.id" :id="marcador.id">
+		<g v-for="marcador in MGrandesPuntos" :key="marcador.id" :id="marcador.id" v-show="marcador.mostrado" >
 			<path v-for="pat in marcador.paths" :key="pat.d" class="cls_1" :d="pat.d"/>
 		</g>
 	</g>
@@ -10,6 +10,7 @@
 
 
 import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
 	name: "MPGrandes",
@@ -19,8 +20,11 @@ export default {
 	},
 	computed: {
 		...mapState({
-			marcadores: state => state.MarcadoresGlobGrand
-		})
+			// MGrandesPuntos: state => state.MarcadoresGlobGrand
+		}),
+		...mapGetters([
+			'MGrandesPuntos', // Lista de Objetos con los datos de los Marcadores grandes
+		])
 	},
 	components: {
 	}

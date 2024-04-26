@@ -3,7 +3,7 @@
 		<div class="GlobalLayer">
 			<svg class="MapaExpojoveNivel2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 499.9 828">
 				<MEN2/>
-				<MarcadoresPabellones v-if="false"/>
+				<MarcadoresPabellones/>
 			</svg>
 		</div>
 	</div>
@@ -33,11 +33,7 @@ export default {
 
 .GlobalLayer{
 
-	width: 65%;
-	// background: blue;
+	width: 60%;
 }
 
-// .MapaExpojoveNivel2{
-
-// }
 </style>

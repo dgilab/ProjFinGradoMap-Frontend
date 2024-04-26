@@ -525,6 +525,7 @@ export default createStore({
 		MarcadoresGlobGrand: {
 			MP1: {
 				id: 'MP1',
+				mostrado: false,
 				paths: [
 					{ d : 'M389.75,640.15l-1.6-3.9-1.6-3.9c-.3-.75-.8-1.38-1.43-1.81s-1.38-.69-2.18-.69h-9.2c3.25-4.35,7.05-9.75,10.04-15.06s5.16-10.54,5.16-14.54c0-6.25-2.45-11.9-6.41-15.99s-9.44-6.61-15.49-6.61-11.53,2.52-15.49,6.61-6.41,9.74-6.41,15.99,2.15,11.5,5.13,16.26,6.78,9.04,10.08,13.34h-9.2c-.8,0-1.55.25-2.18.69s-1.12,1.06-1.43,1.81l-1.6,3.9-1.6,3.9c-.25.6-.35,1.25-.29,1.9s.29,1.3.69,1.9c.35.55.83,1,1.38,1.31s1.17.49,1.83.49h38c.65,0,1.27-.18,1.82-.49s1.03-.76,1.38-1.31.58-1.17.65-1.82,0-1.33-.25-1.97h.2ZM367.15,635.05h0c-.2,0-.38-.05-.54-.14s-.31-.21-.46-.36c-2.25-2.8-7.07-8.95-11.34-15.61s-7.96-13.84-7.96-18.69,2.28-10.1,5.95-14.14,8.75-6.86,14.35-6.86,10.67,2.35,14.35,6.15,5.95,9.05,5.95,14.85-3.7,13-7.96,19.44-9.09,12.11-11.34,14.86c-.1.15-.25.27-.43.36s-.37.14-.57.14Z'},
 					{ d : 'M379.75,600.25c0,3.6-1.4,6.85-3.68,9.2s-5.43,3.8-8.93,3.8-6.65-1.45-8.93-3.8-3.68-5.6-3.68-9.2,1.4-6.85,3.68-9.2,5.43-3.8,8.93-3.8,6.65,1.45,8.93,3.8,3.68,5.6,3.68,9.2Z'},
@@ -532,6 +533,7 @@ export default createStore({
 			},
 			MP2: {
 				id: 'MP2',
+				mostrado: false,
 				paths: [
 					{ d : 'M159.35,638.55l-1.6-3.9-1.6-3.9c-.3-.75-.8-1.38-1.43-1.81s-1.38-.69-2.18-.69h-9.2c3.25-4.35,7.05-9.75,10.04-15.06s5.16-10.54,5.16-14.54c0-6.25-2.45-11.9-6.41-15.99s-9.44-6.61-15.49-6.61-11.52,2.52-15.49,6.61-6.41,9.74-6.41,15.99,2.15,11.5,5.12,16.26,6.78,9.04,10.08,13.34h-9.2c-.8,0-1.55.25-2.17.69s-1.12,1.06-1.42,1.81l-1.6,3.9-1.6,3.9c-.25.6-.35,1.25-.29,1.9s.29,1.3.69,1.9c.35.55.82,1,1.37,1.31s1.18.49,1.82.49h38c.65,0,1.28-.18,1.83-.49s1.02-.76,1.37-1.31.57-1.17.65-1.82,0-1.33-.25-1.97h.2ZM136.75,633.55h0c-.2,0-.37-.05-.54-.14s-.31-.21-.46-.36c-2.25-2.8-7.08-8.95-11.34-15.61s-7.96-13.84-7.96-18.69,2.27-10.1,5.95-14.14,8.75-6.86,14.35-6.86,10.68,2.35,14.35,6.15,5.95,9.05,5.95,14.85-3.7,13-7.96,19.44-9.09,12.11-11.34,14.86c-.1.15-.25.27-.43.36s-.38.14-.57.14Z'},
 					{ d : 'M149.25,598.65c0,3.6-1.4,6.85-3.68,9.2s-5.43,3.8-8.93,3.8-6.65-1.45-8.92-3.8-3.67-5.6-3.67-9.2,1.4-6.85,3.67-9.2,5.42-3.8,8.92-3.8,6.65,1.45,8.93,3.8,3.68,5.6,3.68,9.2Z'},
@@ -539,6 +541,7 @@ export default createStore({
 			},
 			MP3: {
 				id: 'MP3',
+				mostrado: false,
 				paths: [
 					{ d : 'M389.75,245.75l-1.6-3.9-1.6-3.9c-.3-.75-.8-1.38-1.43-1.81s-1.38-.69-2.18-.69h-9.2c3.25-4.35,7.05-9.75,10.04-15.06s5.16-10.54,5.16-14.54c0-6.25-2.45-11.9-6.41-15.99s-9.44-6.61-15.49-6.61-11.53,2.53-15.49,6.61-6.41,9.74-6.41,15.99,2.15,11.5,5.13,16.26,6.78,9.04,10.08,13.34h-9.2c-.8,0-1.55.25-2.18.69s-1.12,1.06-1.43,1.81l-1.6,3.9-1.6,3.9c-.25.6-.35,1.25-.29,1.9s.29,1.3.69,1.9c.35.55.83,1,1.38,1.31s1.17.49,1.83.49h38c.65,0,1.27-.17,1.82-.49s1.03-.76,1.38-1.31.58-1.18.65-1.83,0-1.32-.25-1.98h.2ZM367.15,240.65h0c-.2,0-.38-.05-.54-.14s-.31-.21-.46-.36c-2.25-2.8-7.07-8.95-11.34-15.61s-7.96-13.84-7.96-18.69,2.28-10.1,5.95-14.14,8.75-6.86,14.35-6.86,10.67,2.35,14.35,6.15,5.95,9.05,5.95,14.85-3.7,13-7.96,19.44-9.09,12.11-11.34,14.86c-.1.15-.25.28-.43.36s-.37.14-.57.14Z'},
 					{ d : 'M379.75,205.85c0,3.6-1.4,6.85-3.68,9.2s-5.43,3.8-8.93,3.8-6.65-1.45-8.93-3.8-3.68-5.6-3.68-9.2,1.4-6.85,3.68-9.2,5.43-3.8,8.93-3.8,6.65,1.45,8.93,3.8,3.68,5.6,3.68,9.2Z'},
@@ -546,6 +549,7 @@ export default createStore({
 			},
 			MP4: {
 				id: 'MP4',
+				mostrado: false,
 				paths: [
 					{ d : 'M148.45,245.75l-1.6-3.9-1.6-3.9c-.3-.75-.8-1.38-1.43-1.81s-1.38-.69-2.18-.69h-9.2c3.25-4.35,7.05-9.75,10.04-15.06s5.16-10.54,5.16-14.54c0-6.25-2.45-11.9-6.41-15.99s-9.44-6.61-15.49-6.61-11.52,2.53-15.49,6.61-6.41,9.74-6.41,15.99,2.15,11.5,5.12,16.26,6.77,9.04,10.07,13.34h-9.2c-.8,0-1.55.25-2.17.69s-1.12,1.06-1.42,1.81l-1.6,3.9-1.6,3.9c-.25.6-.35,1.25-.29,1.9s.29,1.3.69,1.9c.35.55.82,1,1.37,1.31s1.18.49,1.82.49h38c.65,0,1.28-.17,1.83-.49s1.02-.76,1.37-1.31.57-1.18.65-1.83,0-1.32-.25-1.98h.2ZM125.85,240.65h0c-.2,0-.38-.05-.54-.14s-.31-.21-.46-.36c-2.25-2.8-7.08-8.95-11.34-15.61s-7.96-13.84-7.96-18.69,2.27-10.1,5.95-14.14,8.75-6.86,14.35-6.86,10.67,2.35,14.35,6.15,5.95,9.05,5.95,14.85-3.7,13-7.96,19.44-9.09,12.11-11.34,14.86c-.1.15-.25.28-.42.36s-.38.14-.58.14Z'},
 					{ d : 'M138.45,205.85c0,3.6-1.4,6.85-3.68,9.2s-5.43,3.8-8.92,3.8-6.65-1.45-8.92-3.8-3.68-5.6-3.68-9.2,1.4-6.85,3.67-9.2,5.42-3.8,8.92-3.8,6.65,1.45,8.93,3.8,3.67,5.6,3.67,9.2Z'},
@@ -645,29 +649,83 @@ export default createStore({
 			},
 		},
 		hoverActivo: false,
-		prueba: false
+		MMGrandes: true,
+
 	},
 	mutations: {
 		activarHover(state, hoverActivo){
 			state.hoverActivo = hoverActivo
-		}
+		},
+		activarMMG(state, hoverActivo){
+			state.hoverActivo = hoverActivo
+		},
+		mostrarMP1(state, mostMP1){
+			state.MarcadoresGlobGrand.MP1.mostrado = mostMP1
+		},
+		mostrarMP2(state, mostMP2){
+			state.MarcadoresGlobGrand.MP2.mostrado = mostMP2
+		},
+		mostrarMP3(state, mostMP3){
+			state.MarcadoresGlobGrand.MP3.mostrado = mostMP3
+		},
+		mostrarMP4(state, mostMP4){
+			state.MarcadoresGlobGrand.MP4.mostrado = mostMP4
+		},
 	},
 	actions: {
 		eventHover({ commit }, e) {
-			const hoverActivo = !this.state.hoverActivo;
+			const hoverActivo = !this.state.hoverActivo
 			commit('activarHover', hoverActivo)
 			if(hoverActivo){
+				if ( e.target.id == 'bp1'){
+					const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
+					commit('mostrarMP1', mostMP1)
+				} else if ( e.target.id == 'bp2'){
+					const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
+					commit('mostrarMP2', mostMP2)
+				} else if ( e.target.id == 'bp3'){
+					const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
+					commit('mostrarMP3', mostMP3)
+				} else if ( e.target.id == 'bp4'){
+					const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
+					commit('mostrarMP4', mostMP4)
+				}
 				e.target.classList.add('hover_Base')
+				
 			} else {
 				e.target.classList.remove('hover_Base')
+				if ( e.target.id == 'bp1'){
+					const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
+					commit('mostrarMP1', mostMP1)
+				} else if ( e.target.id == 'bp2'){
+					const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
+					commit('mostrarMP2', mostMP2)
+				} else if ( e.target.id == 'bp3'){
+					const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
+					commit('mostrarMP3', mostMP3)
+				} else if ( e.target.id == 'bp4'){
+					const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
+					commit('mostrarMP4', mostMP4)
+				}
 
 			}
-
-
-			// e.target.classList.add = hoverActivo ? 'hoverBase' : '';
-		}
+		},
 	},
 	getters: {
+		MCafep1: state => state.MarcP.MP1_2.MCafep1,
+		MEscenp1: state => state.MarcP.MP1_2.MEscenp1,
+		MStandsp1: state => state.MarcP.MP1_2.MStandsp1,
+
+		MCafep2: state => state.MarcP.MP2_2.MCafep2,
+		MStandsp2: state => state.MarcP.MP2_2.MStandsp2,
+		
+		MCafep4: state => state.MarcP.MP4_2.MCafep4,
+		MStandsp4: state => state.MarcP.MP4_2.MStandsp4,
+		
+		MGrandesPuntos: state => state.MarcadoresGlobGrand, //Datos de los puntos de los marcadores grandes
+
+		MMGrandes: state => state.MMGrandes, // Mostrar o no lo marcadores grandes  en general
+		
 	},
 	modules: {
 	}

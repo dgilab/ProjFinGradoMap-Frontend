@@ -13,6 +13,7 @@
 
 
 import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
 	name: "Pabellon4Marc",
@@ -22,9 +23,13 @@ export default {
 	},
 	computed: {
 		...mapState({
-			MCafep4: state => state.MarcP.MP4_2.MCafep4,
-			MStandsp4: state => state.MarcP.MP4_2.MStandsp4,
-		})
+			// MCafep4: state => state.MarcP.MP4_2.MCafep4,
+			// MStandsp4: state => state.MarcP.MP4_2.MStandsp4,
+		}),
+		...mapGetters([
+			'MCafep4', 
+			'MStandsp4'
+		])
 	},
 	components: {
 	}
