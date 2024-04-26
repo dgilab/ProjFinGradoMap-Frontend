@@ -1,14 +1,15 @@
 <template>
 	<div class="ExpoMapGlob">
 		<MapaExpojoveNivel2/>
-
+		<!-- <button @click="this.store.state.prueba = !this.store.state.prueba">Ocultar solo Grandes</button> -->
 	</div>
 </template>
 
 <script>
+import { useStore } from 'vuex'
 
 import MapaExpojoveNivel2 from '@/components/ExpoMapComp/MapExpoJoNivel2.vue';
-import { useStore } from 'vuex'
+
 
 export default {
 	name: 'ExpoMapGlob',
@@ -19,7 +20,9 @@ export default {
 		return {
 			store: useStore(),
 		}
-	}
+	},
+	computed: {
+	},
 }
 </script>
 

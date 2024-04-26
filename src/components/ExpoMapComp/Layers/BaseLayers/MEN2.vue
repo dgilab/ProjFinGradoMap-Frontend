@@ -2,7 +2,7 @@
     <g id="MEN2">
         <BaseMapa/>
         <BaseMapaInterior/>
-        <DGLayer/>
+        <DGLayer v-if="false"/>
         <N2Pabellones/>
     </g>
 </template>

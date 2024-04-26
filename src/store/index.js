@@ -643,13 +643,31 @@ export default createStore({
 					] 
 				},
 			},
+		},
+		hoverActivo: false,
+		prueba: false
+	},
+	mutations: {
+		activarHover(state, hoverActivo){
+			state.hoverActivo = hoverActivo
+		}
+	},
+	actions: {
+		eventHover({ commit }, e) {
+			const hoverActivo = !this.state.hoverActivo;
+			commit('activarHover', hoverActivo)
+			if(hoverActivo){
+				e.target.classList.add('hover_Base')
+			} else {
+				e.target.classList.remove('hover_Base')
+
+			}
+
+
+			// e.target.classList.add = hoverActivo ? 'hoverBase' : '';
 		}
 	},
 	getters: {
-	},
-	mutations: {
-	},
-	actions: {
 	},
 	modules: {
 	}

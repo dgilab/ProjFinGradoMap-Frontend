@@ -1,11 +1,11 @@
 <template>
 	<div class="MEJN2-GlobalLayer">
-		<svg id="MapaExpojoveNivel2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 499.9 828">
-			<MEN2/>
-			<MarcadoresPabellones/>
-			
-			
-		</svg>
+		<div class="GlobalLayer">
+			<svg class="MapaExpojoveNivel2" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 499.9 828">
+				<MEN2/>
+				<MarcadoresPabellones v-if="false"/>
+			</svg>
+		</div>
 	</div>
 </template>
 
@@ -25,6 +25,19 @@ export default {
 
 <style lang="scss" scoped>
 .MEJN2-GlobalLayer{
-	width: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
 }
+
+.GlobalLayer{
+
+	width: 65%;
+	// background: blue;
+}
+
+// .MapaExpojoveNivel2{
+
+// }
 </style>

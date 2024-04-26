@@ -1,6 +1,6 @@
 <template>
 	<g id="MarcadoresPabellones">
-		<MPGrandes/>
+		<MPGrandes v-if="prueba"/>
 		<Pabellon1Marc/>
 		<Pabellon2Marc/>
 		<Pabellon4Marc/>
@@ -9,6 +9,8 @@
 </template>
 
 <script>
+
+import { mapState } from 'vuex'
 
 import MPGrandes from './MPabN2/MPGrandes.vue'
 
@@ -23,7 +25,17 @@ export default {
 		Pabellon1Marc,
 		Pabellon2Marc,
 		Pabellon4Marc
-	}
+	},
+	data() {
+		return {
+
+		}
+	},
+	computed: {
+		...mapState({
+			prueba: state => state.prueba,
+		})
+	},
 }
 </script>
 
