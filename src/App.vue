@@ -24,6 +24,8 @@
 	--build-color-event-hover: #149f94;
 
 	--build-sombra-base: 0px 1px 2px 4px rgba(0, 0, 0, 0.2);
+
+	--build-transicion-principal: cubic-bezier(0, 0.02, 1, 1.01);
 }
 body {
 	margin: 0;
@@ -41,7 +43,7 @@ body {
 	fill: var(--build-color-basePabellones);
 	stroke-width: .3px;
 	stroke: var(--build-color-black); 
-	transition: fill 0.4s ease;
+	transition: var(--build-transicion-principal);
 } //Pabellones Base
 .cls_9{fill: var(--build-color-cafeteias);stroke-width: .2px;stroke: var(--build-color-black);}
 .cls_13{fill: var(--build-color-white);stroke-width: .3px;stroke: var(--build-color-black);} // Color Texto
