@@ -17,6 +17,9 @@
                     <SwitchersFormulario :idProp="idFoodTrucks"/>
                     <SwitchersTexto :textProp="textSwitcherFoodTrucks"/>
                 </div>
+                <div class="cont_inFoodTrucks">
+                    <SwitchersFoodTruck/>
+                </div>
             </div>
 
         </div>
@@ -29,6 +32,7 @@ import { mapActions } from 'vuex'
 
 import SwitchersFormulario from '../Switchers/SwitchersFormulario.vue'
 import SwitchersTexto from '../Switchers/SwitchersTexto.vue'
+import SwitchersFoodTruck from '../Switchers/SwitchersFoodTruck.vue'
 
 export default {
 	name: 'PanelCuerpoInteres',
@@ -44,7 +48,8 @@ export default {
     },
     components: {
 		SwitchersFormulario,
-        SwitchersTexto
+        SwitchersTexto,
+        SwitchersFoodTruck
 	},
     methods: {
 		...mapActions(['mostrarInteres'])
@@ -72,10 +77,25 @@ export default {
     align-items: center;
 }
 
+.TituloPanelInteres{
+    h1{
+        text-align: center;
+        font-size: 2vw;
+    }
+}
+
 .g_cont_switch{
     width:80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+}
+
+
+.cont_inFoodTrucks{
+    width:80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 </style>

@@ -1,9 +1,6 @@
 <template>
     <div class="contenedor_paneles">
         <PanelCuerpoInteres/>
-        <PanelCuerpoInteres/>
-        <PanelCuerpoInteres/>
-        <PanelCuerpoInteres/>
 
     </div>
 </template>

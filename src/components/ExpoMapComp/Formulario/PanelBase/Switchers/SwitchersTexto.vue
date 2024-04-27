@@ -22,11 +22,13 @@ export default {
 
 <style lang="scss" scoped>
 .SwitchersTexto{
-    max-width: 80%;
+    max-width: 100%;
+    text-align: left;
 }
 
 .texto{
     font-size: 1vw;
+    padding-inline-start: 2vh;
 }
 
 </style>

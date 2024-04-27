@@ -28,9 +28,11 @@ export default {
 
 .switch-boton {
     display: inline-block;
+
 }
 .switch-boton .switch-boton__checkbox {
     display: none;
+    
 }
 .switch-boton .switch-boton__label {
     background-color: var(--build-color-azul-verdoso);
@@ -39,6 +41,7 @@ export default {
     border-radius: 3rem;
     display: inline-block;
     position: relative;
+    cursor: pointer;
 }
 .switch-boton .switch-boton__label:before {
     transition: .2s;
