@@ -1,8 +1,14 @@
 <template>
 	<g id="DPuestosGen">
-		<ServicioInterior v-show="MostLabavos"/>
-		<SalidasEmergencia v-show="MostSalidaEmergencia"/>
-		<FoodTruck v-show="false"/>
+		<transition name="mostP">
+			<ServicioInterior v-if="MostLabavos"/>
+		</transition>
+		<transition name="mostP">
+			<SalidasEmergencia v-if="MostSalidaEmergencia"/>
+		</transition>
+		<transition name="mostP">
+			<FoodTruck v-if="MostFoodTrucks"/>
+		</transition>
 	</g>
 </template>
 
@@ -24,12 +30,13 @@ export default {
 	computed: {
 		...mapGetters([
 			'MostLabavos',
-			'MostSalidaEmergencia'
+			'MostSalidaEmergencia',
+			'MostFoodTrucks'
 		]),
 	}
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

@@ -11,6 +11,8 @@
 	--build-color-white: #ffffff;
 	--build-color-light-grey: #ececec;
 
+
+	// colores detalles pabellones
 	--build-color-basePabellones: #ffffff;
 	--build-color-baseMapa: #d6d5d1;
 	--build-color-marcadores-grandes: #000000;
@@ -22,13 +24,21 @@
 	--build-color-salidasEmergencia: #23a55b;
 	--build-color-foodTruck: #f60;
 
+
 	--build-color-event-hover: #149f94;
 
-	
 	--build-sombra-base: drop-shadow( 1px 0px 10px #000000);
 	--build-transicion-principal: 0.4s cubic-bezier(0, 0.02, 1, 1.01);
 	--build-escalado-base: scale(1);
 	--build-transform-origin-hover: 40% 40%;
+
+
+	// Paleta de colores Azules/Morados
+	--build-color-azul-verdoso: #9AD5CA;
+	--build-color-azul-claro: #ACDDE7;
+	--build-color-azul-morado: #ADB9E3;
+	--build-color-morado-floral: #A379C9;
+	--build-color-morado-llamativo: #B744B8;
 }
 
 *{
@@ -64,11 +74,16 @@ body {
 
 
 .hover_Base{
-	fill: var(--build-color-event-hover);
+	fill: var(--build-color-azul-verdoso);
 	box-shadow: var(--build-sombra-base);
 	transform: var(--build-escalado-base);
 	transform-origin: var(--build-transform-origin-hover);
 }
 
-
+.mostP-enter-active, .mostP-leave-active {
+	transition: all .5s;
+}
+.mostP-enter-from, .mostP-leave-to {
+	opacity: 0;
+}
 </style>

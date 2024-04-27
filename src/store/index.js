@@ -652,6 +652,7 @@ export default createStore({
 		MMGrandes: true,
 		MostLabavos: false,
 		MostSalidaEmergencia: false,
+		MostFoodTrucks: false,
 
 
 	},
@@ -674,11 +675,19 @@ export default createStore({
 		mostrarMP4(state, mostMP4){
 			state.MarcadoresGlobGrand.MP4.mostrado = mostMP4
 		},
+		volverEstadoOriginal(state, valorOriginal){
+			state.MostLabavos = valorOriginal
+			state.MostSalidaEmergencia = valorOriginal
+			state.MostFoodTrucks = valorOriginal
+		},
 		mostrarLavabos(state, MostLabavos){
 			state.MostLabavos = MostLabavos
 		},
 		mostrarSalidaEmergencia(state, MostSalidaEmergencia){
 			state.MostSalidaEmergencia = MostSalidaEmergencia
+		},
+		mostrarFoodTrucks(state, MostFoodTrucks){
+			state.MostFoodTrucks = MostFoodTrucks
 		},
 	},
 	actions: {
@@ -720,15 +729,19 @@ export default createStore({
 			}
 		},
 		mostrarInteres({ commit }, e) {
-			if(e.target.dataset.selector == 'lavPubli'){
-				const mostLavabos = !this.state.MostLabavos
-				commit('mostrarLavabos', mostLavabos)
+			if(e.target.id == 'lavPubli'){
+				commit('mostrarLavabos', !this.state.MostLabavos)
 				
-			} else if (e.target.dataset.selector == 'salEmergen') {
-				const MostSalidaEmergencia = !this.state.MostSalidaEmergencia
-				commit('mostrarSalidaEmergencia', MostSalidaEmergencia)
+			} else if (e.target.id == 'salEmergen') {
+				commit('mostrarSalidaEmergencia', !this.state.MostSalidaEmergencia)
+
+			} else if (e.target.id == 'foodTruck') {
+				commit('mostrarFoodTrucks', !this.state.MostFoodTrucks)
 
 			}
+		},
+		valorInicial({ commit }, valorOriginal) {
+			commit('volverEstadoOriginal', valorOriginal)
 		},
 	},
 	getters: {
@@ -748,7 +761,8 @@ export default createStore({
 		
 		MostLabavos: state => state.MostLabavos,
 		MostSalidaEmergencia: state => state.MostSalidaEmergencia,
+		MostFoodTrucks: state => state.MostFoodTrucks,
 	},
 	modules: {
-	}
+	},
 })

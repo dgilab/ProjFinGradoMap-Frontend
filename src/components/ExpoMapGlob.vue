@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { useStore } from 'vuex'
+import { useStore, mapActions } from 'vuex'
 
 import MapaExpojoveNivel2 from '@/components/ExpoMapComp/MapExpoJoNivel2.vue';
 
@@ -22,9 +22,24 @@ export default {
 	},
 	computed: {
 	},
+	methods: {
+		...mapActions([ 'valorInicial']),
+		actuEstadoServicios(){
+			this.valorInicial(false)
+		}
+	},
+	mounted(){
+		window.addEventListener('beforeunload', this.actuEstadoServicios)
+	},
+	beforeUnmount() {
+		window.removeEventListener('beforeunload', this.actuEstadoServicios);
+	},
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.ExpoMapGlob{
+	overflow: hidden;
+}
 
 </style>

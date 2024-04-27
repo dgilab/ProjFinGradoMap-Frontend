@@ -26,7 +26,6 @@ export default {
 	align-items: space-between;
 	width: 100%;
 	height: 100vh;
-	/* background: red; */
+	overflow: hidden;
 }
-
 </style>
