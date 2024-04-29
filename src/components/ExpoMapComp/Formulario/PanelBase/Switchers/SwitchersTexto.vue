@@ -1,6 +1,6 @@
 <template>
 	<div class="SwitchersTexto">
-        <p class="texto">{{ textProp }}</p>
+        <p class="titSitios">{{ textProp }}</p>
 	</div>
 </template>
 
@@ -24,10 +24,15 @@ export default {
 .SwitchersTexto{
     max-width: 100%;
     text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // border: 0.5px solid red;
 }
 
-.texto{
-    font-size: 1vw;
+.titSitios{
+    margin: 0;
+    font-size: 1.15vw;
     padding-inline-start: 2vh;
 }
 

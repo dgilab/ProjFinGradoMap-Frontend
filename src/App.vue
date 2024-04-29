@@ -44,10 +44,16 @@
 *{
 	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
 	margin: 0;
 	padding: 0;
+	line-height: var(--bs-body-line-height);
 	
 }
 

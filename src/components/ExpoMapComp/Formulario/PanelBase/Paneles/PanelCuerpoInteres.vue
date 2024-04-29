@@ -17,9 +17,11 @@
                     <SwitchersFormulario :idProp="idFoodTrucks"/>
                     <SwitchersTexto :textProp="textSwitcherFoodTrucks"/>
                 </div>
-                <div class="cont_inFoodTrucks">
-                    <SwitchersFoodTruck/>
-                </div>
+                <transition name="mostP">
+                    <div class="cont_inFoodTrucks" v-if="MostFoodTrucks">
+                        <InfoFoodTruck/>
+                    </div>
+                </transition>
             </div>
 
         </div>
@@ -29,10 +31,11 @@
 <script>
 
 import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import SwitchersFormulario from '../Switchers/SwitchersFormulario.vue'
 import SwitchersTexto from '../Switchers/SwitchersTexto.vue'
-import SwitchersFoodTruck from '../Switchers/SwitchersFoodTruck.vue'
+import InfoFoodTruck from '../Informacion/InfoFoodTruck.vue'
 
 export default {
 	name: 'PanelCuerpoInteres',
@@ -49,7 +52,12 @@ export default {
     components: {
 		SwitchersFormulario,
         SwitchersTexto,
-        SwitchersFoodTruck
+        InfoFoodTruck,
+	},
+    computed: {
+		...mapGetters([
+			'MostFoodTrucks'
+		]),
 	},
     methods: {
 		...mapActions(['mostrarInteres'])

@@ -36,8 +36,8 @@ export default {
 }
 .switch-boton .switch-boton__label {
     background-color: var(--build-color-azul-verdoso);
-    width: 5rem;
-    height: 2rem;
+    width: 4rem;
+    height: 1.5rem;
     border-radius: 3rem;
     display: inline-block;
     position: relative;
@@ -47,8 +47,8 @@ export default {
     transition: .2s;
     display: block;
     position: absolute;
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     background-color: var(--build-color-azul-claro);
     content: '';
     border-radius: 50%;
@@ -58,7 +58,7 @@ export default {
     background-color: var(--build-color-morado-floral);
 }
 .switch-boton .switch-boton__checkbox:checked + .switch-boton__label:before {
-    transform: translateX(3rem);
+    transform: translateX(2.5rem);
 }
 
 </style>
