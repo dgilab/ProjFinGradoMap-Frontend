@@ -1,7 +1,7 @@
 <template>
 	<div class="InfoFoodTruck">
         <div class="Contenido_ft">
-            <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck">
+            <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift.data_id)">
                 <IconFlechaIzq class="flecha"/>
                 <p class="textoFT">{{ ift.nombre_ft }}</p>
             </div>
@@ -11,7 +11,7 @@
 
 <script>
 
-// import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 import { mapGetters } from 'vuex'
 import IconFlechaIzq from '../Iconos/IconFlechaIzq.vue'
 
@@ -21,7 +21,9 @@ export default {
         textProp: String,
     },
     methods: {
-		// ...mapActions([''])
+		...mapActions([
+            'verFTenelMapa',
+        ])
 	},
     computed: {
         ...mapGetters([
@@ -60,6 +62,14 @@ export default {
     justify-content: space-between;
     margin: 1vh;
     cursor: pointer;
+}
+.foodtruck:hover{
+    background: var(--build-color-morado-floral);
+    color: var(--build-color-azul-claro);
+    border-radius: 15px;
+    .flecha{
+        fill: var(--build-color-azul-claro);
+    }
 }
 .flecha{
     width: 10%;

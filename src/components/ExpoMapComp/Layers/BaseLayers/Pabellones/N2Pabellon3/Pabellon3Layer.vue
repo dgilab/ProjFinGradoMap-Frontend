@@ -1,6 +1,7 @@
 <template>
 	<g id="Nivel2Pabellon3">
 		<g id="capaPabellon3">
+			<title>Pabellón 3</title>
 			<polygon id="bp3" class="cls_8" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" points="275.55 53.15 365.1 53.15 454.65 53.15 454.65 222 454.65 390.85 365.1 390.85 275.55 390.85 275.55 222 275.55 53.15" />
 		</g>
 		<g id="Pabellon3" v-if="false">

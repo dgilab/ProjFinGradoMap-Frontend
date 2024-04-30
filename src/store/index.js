@@ -668,6 +668,7 @@ export default createStore({
 		MostLabavos: false,
 		MostSalidaEmergencia: false,
 		MostFoodTrucks: false,
+		VerEnMapaFt: false,
 
 
 	},
@@ -703,6 +704,9 @@ export default createStore({
 		},
 		mostrarFoodTrucks(state, MostFoodTrucks){
 			state.MostFoodTrucks = MostFoodTrucks
+		},
+		mostrarFTenelMapa(state, ValVerEnMapaFt){
+			state.VerEnMapaFt = ValVerEnMapaFt
 		},
 	},
 	actions: {
@@ -757,6 +761,11 @@ export default createStore({
 		},
 		valorInicial({ commit }, valorOriginal) {
 			commit('volverEstadoOriginal', valorOriginal)
+		},
+		verFTenelMapa({ commit }, e){
+			const VerEnMapaFt = !this.state.VerEnMapaFt
+			commit('mostrarFTenelMapa', VerEnMapaFt)
+			console.log(e)
 		},
 	},
 	getters: {

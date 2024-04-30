@@ -85,6 +85,13 @@ body {
 	transform: var(--build-escalado-base);
 	transform-origin: var(--build-transform-origin-hover);
 }
+.hover_FoodTruck{
+	background: var(--build-color-morado-floral);
+	// fill: var(--build-color-azul-verdoso);
+	box-shadow: var(--build-sombra-base);
+	transform: var(--build-escalado-base);
+	transform-origin: var(--build-transform-origin-hover);
+}
 
 .mostP-enter-active, .mostP-leave-active {
 	transition: all .5s;
@@ -92,4 +99,23 @@ body {
 .mostP-enter-from, .mostP-leave-to {
 	opacity: 0;
 }
+
+.animacionCompFT {
+  animation: animacionComponente 1s ease;
+}
+
+@keyframes animacionComponente {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.2);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+
+
 </style>

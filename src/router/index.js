@@ -10,7 +10,7 @@ const routes = [
     path: '/admin',
     name: 'admin',
     component: () => import('../views/HomeView.vue')
-  }
+  },
 ]
 
 const router = createRouter({
