@@ -663,6 +663,9 @@ export default createStore({
 			{id: 'ftd_12', data_id: 'ft_12', nombre_ft: 'Hamburguesas'},
 			{id: 'ftd_13', data_id: 'ft_13', nombre_ft: 'Pizzas'},
 		],
+
+		referenciaSVGglob: null, 
+
 		hoverActivo: false,
 		MMGrandes: true,
 		MostLabavos: false,
@@ -670,10 +673,14 @@ export default createStore({
 		MostFoodTrucks: false,
 		VerEnMapaFt: false,
 		isZoomed: false,
+		zoomedPabId: null,
 
 
 	},
 	mutations: {
+		refSVG(state, refSVGglob){
+			state.referenciaSVGglob = refSVGglob
+		},
 		activarHover(state, hoverActivo){
 			state.hoverActivo = hoverActivo
 		},
@@ -712,8 +719,16 @@ export default createStore({
 		zoomed(state, valIsZoomed){
 			state.isZoomed = valIsZoomed
 		},
+		zoomedPabId(state, id){
+			state.zoomedPabId = id
+		},
 	},
 	actions: {
+		referenciarSVG({ commit }, ref){
+			if(this.state.referenciaSVGglob == null){
+				commit('refSVG', ref)
+			}
+		},
 		eventHover({ commit }, e) {
 			const hoverActivo = !this.state.hoverActivo
 			commit('activarHover', hoverActivo)
@@ -789,15 +804,46 @@ export default createStore({
 			commit('mostrarFTenelMapa', VerEnMapaFt)
 		},
 		zoomIn({ commit }, e){ // EN DESARROLLO
-			const coordPabellon = e.target.getLatLngs
+			var mapa = this.state.referenciaSVGglob
+			var pabSelected = mapa.getElementById(e.target.id)
+			var rect = pabSelected.getBoundingClientRect()
 
 			
-			const iszoomed = !this.state.isZoomed
-			commit('zoomed', iszoomed)
-			console.log(this.state.isZoomed, e, coordPabellon)
+			var cX = rect.left + rect.width / 2
+			var cY = rect.top + rect.height / 2
+			
+			var escalado = 2.5
+			
+			var puntos = {
+				bp1: { x: 2.30, y: 2.21 },
+				bp2: { x: 3.00, y: 2.21 },
+				bp3: { x: 2.30, y: 3.19 },
+				bp4: { x: 3.00, y: 3.19 }
+			}
+			var pbSVal = pabSelected.id
+			var puntoSelect = puntos[pbSVal]
+			
+			var nX = -cX * (escalado - puntoSelect.x)
+			var nY = -cY * (escalado - puntoSelect.y)
+
+			if (this.state.isZoomed) {
+				if (this.state.zoomedElementId === pbSVal) {
+					mapa.style.transform = `scale(${escalado}) translate(${nX}px, ${nY}px)`;
+				} else {
+					commit('zoomed', false);
+					mapa.style.transform = '';
+					commit('zoomedPabId', pbSVal);
+				}
+			} else {
+				commit('zoomed', true);
+				commit('zoomedPabId', pbSVal);
+				mapa.style.transform = `scale(${escalado}) translate(${nX}px, ${nY}px)`;
+			}
 		},
 	},
 	getters: {
+		RefSVG: state => state.referenciaSVGglob,
+
 		MCafep1: state => state.MarcP.MP1_2.MCafep1,
 		MEscenp1: state => state.MarcP.MP1_2.MEscenp1,
 		MStandsp1: state => state.MarcP.MP1_2.MStandsp1,

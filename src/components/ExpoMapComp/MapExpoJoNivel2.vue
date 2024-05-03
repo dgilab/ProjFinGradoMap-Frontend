@@ -1,7 +1,7 @@
 <template>
 	<div class="MEJN2">
 		<GlobalLayer/>
-		<GlobalForm/>
+		<GlobalForm class="formularioMapa"/>
 	</div>
 </template>
 
@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 .MEJN2{
 	display: flex;
 	flex-direction: row;
@@ -27,5 +27,9 @@ export default {
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
+}
+
+.formularioMapa{
+	z-index: 9999;
 }
 </style>

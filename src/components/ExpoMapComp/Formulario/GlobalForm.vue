@@ -46,6 +46,7 @@ export default {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		background: var(--build-color-white);
 		.Panel_titulo{
 			height: 10vh;
 			width: 80%;
