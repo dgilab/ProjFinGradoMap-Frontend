@@ -669,6 +669,7 @@ export default createStore({
 		MostSalidaEmergencia: false,
 		MostFoodTrucks: false,
 		VerEnMapaFt: false,
+		isZoomed: false,
 
 
 	},
@@ -707,6 +708,9 @@ export default createStore({
 		},
 		mostrarFTenelMapa(state, ValVerEnMapaFt){
 			state.VerEnMapaFt = ValVerEnMapaFt
+		},
+		zoomed(state, valIsZoomed){
+			state.isZoomed = valIsZoomed
 		},
 	},
 	actions: {
@@ -783,7 +787,14 @@ export default createStore({
 
 			const VerEnMapaFt = !this.state.VerEnMapaFt
 			commit('mostrarFTenelMapa', VerEnMapaFt)
-			// console.log(IdFtForm, flechaFT, '#'+eFormFT.id, TodClasFlecha)
+		},
+		zoomIn({ commit }, e){ // EN DESARROLLO
+			const coordPabellon = e.target.getLatLngs
+
+			
+			const iszoomed = !this.state.isZoomed
+			commit('zoomed', iszoomed)
+			console.log(this.state.isZoomed, e, coordPabellon)
 		},
 	},
 	getters: {
@@ -806,6 +817,8 @@ export default createStore({
 		MostFoodTrucks: state => state.MostFoodTrucks,
 
 		DatosFoodTrucks: state => state.DatosFoodTrucks,
+		
+		HayZoomActivo: state => state.isZoomed,
 	},
 	modules: {
 	},
