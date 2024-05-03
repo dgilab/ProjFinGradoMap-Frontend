@@ -35,5 +35,6 @@ export default {
     overflow: auto;
 	scrollbar-width: thin;
     padding: 5%;
+    transition: all 0.5s;    
 }
 </style>

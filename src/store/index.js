@@ -762,10 +762,28 @@ export default createStore({
 		valorInicial({ commit }, valorOriginal) {
 			commit('volverEstadoOriginal', valorOriginal)
 		},
-		verFTenelMapa({ commit }, e){
+		verFTenelMapa({ commit }, eFormFT){
+			const IDpuestoFT = document.getElementById(eFormFT.data_id)
+			const ClasspuestoFT = document.querySelectorAll('.'+IDpuestoFT.classList)
+
+			const IdFtForm = document.getElementById(eFormFT.id)
+			const TodClasFtForm = document.querySelectorAll('.'+ IdFtForm.classList)
+			
+			const flechaFT = IdFtForm.querySelector('.flecha')
+			const TodClasFlecha = document.querySelectorAll('.flecha')
+
+			ClasspuestoFT.forEach(puesto => puesto.classList.remove('click_FoodTruck_map'))
+			IDpuestoFT.classList.add('click_FoodTruck_map')
+
+			TodClasFtForm.forEach(puesto => puesto.classList.remove('clk_FT_form'))
+			IdFtForm.classList.add('clk_FT_form')
+			
+			TodClasFlecha.forEach(flecha => flecha.classList.remove('flecha_form'))
+			flechaFT.classList.add('flecha_form')
+
 			const VerEnMapaFt = !this.state.VerEnMapaFt
 			commit('mostrarFTenelMapa', VerEnMapaFt)
-			console.log(e)
+			// console.log(IdFtForm, flechaFT, '#'+eFormFT.id, TodClasFlecha)
 		},
 	},
 	getters: {

@@ -25,6 +25,9 @@
 	--build-color-foodTruck: #f60;
 
 
+	--build-color-foodTruck-selected: #8d4311;
+
+
 	--build-color-event-hover: #149f94;
 
 	--build-sombra-base: drop-shadow( 1px 0px 10px #000000);
@@ -47,14 +50,13 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
 	padding: 0;
 	line-height: var(--bs-body-line-height);
-	
 }
 
 .cls_1{
@@ -65,7 +67,10 @@ body {
 .cls_3{fill: var(--build-color-salidasEmergencia);}
 .cls_4{fill: var(--build-color-escenarios);}
 .cls_5{fill: var(--build-color-servicios);}
-.cls_7{fill: var(--build-color-foodTruck);}
+.cls_7{
+	fill: var(--build-color-foodTruck);
+	transition: all 0.7s;
+} // Puestos FoodTruck
 .cls_8{
 	fill: var(--build-color-basePabellones);
 	stroke-width: .3px;
@@ -93,6 +98,17 @@ body {
 	transform-origin: var(--build-transform-origin-hover);
 }
 
+.click_FoodTruck_map{
+	fill: var(--build-color-foodTruck-selected);
+}
+.clk_FT_form{
+	background: var(--build-color-morado-floral);
+	color: var(--build-color-azul-claro);
+}
+.flecha_form{
+	fill: var(--build-color-azul-claro);
+}
+
 .mostP-enter-active, .mostP-leave-active {
 	transition: all .5s;
 }
@@ -101,7 +117,7 @@ body {
 }
 
 .animacionCompFT {
-  animation: animacionComponente 1s ease;
+	animation: animacionComponente 1s ease;
 }
 
 @keyframes animacionComponente {

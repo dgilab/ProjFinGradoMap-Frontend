@@ -1,7 +1,8 @@
 <template>
 	<div class="InfoFoodTruck">
         <div class="Contenido_ft">
-            <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift.data_id)">
+            <!-- <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift.data_id, ift.id)">-->
+            <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift)"> <!-- El Tag data-id hace referencia al id de los puntos del marca de los FoodTrucks -->
                 <IconFlechaIzq class="flecha"/>
                 <p class="textoFT">{{ ift.nombre_ft }}</p>
             </div>
@@ -62,11 +63,15 @@ export default {
     justify-content: space-between;
     margin: 1vh;
     cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 15px;
+    .flecha{
+        transition: all 0.5s;
+    }
 }
 .foodtruck:hover{
     background: var(--build-color-morado-floral);
     color: var(--build-color-azul-claro);
-    border-radius: 15px;
     .flecha{
         fill: var(--build-color-azul-claro);
     }
