@@ -688,6 +688,9 @@ export default createStore({
 
 	},
 	mutations: {
+		actualizarEstado(state, datos){
+			Object.assign(state, datos)
+		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
 		},
@@ -753,7 +756,25 @@ export default createStore({
 				commit('refSVG', ref)
 			}
 		},
-		eventHover({ commit }, e) {
+		eventHover({ commit }, e) { //buenoa
+			const hoverActivo = !this.state.hoverActivo
+			commit('activarHover', hoverActivo)
+			console.log(hoverActivo)
+
+			const idTarget = e.target.id
+			const alternMarcador = (id) => {
+				const marcador = `MP${id[idTarget.length - 1]}`
+				console.log(marcador)
+				const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
+				const datos = { [marcador]: { mostrado: alternado } }
+				console.log(this.state.MarcadoresGlobGrand[marcador].mostrado)
+				commit('actualizarEstado', datos)
+			}
+
+			alternMarcador(idTarget)
+			e.target.classList.toggle('hover_Base', hoverActivo) // Cambiar el estado de la clase del target e añadiendole la clase hover_base aplicando nuevos estilos
+		},
+		eventhover({ commit }, e) { //pocho
 			const hoverActivo = !this.state.hoverActivo
 			commit('activarHover', hoverActivo)
 			if(hoverActivo){
