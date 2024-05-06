@@ -675,6 +675,16 @@ export default createStore({
 		isZoomed: false,
 		zoomedPabId: null,
 
+		eventosPab1Activos: true,
+		eventosPab2Activos: true,
+		eventosPab3Activos: true,
+		eventosPab4Activos: true,
+
+		intPab1: false,
+		intPab2: false,
+		intPab3: false,
+		intPab4: false,
+
 
 	},
 	mutations: {
@@ -722,6 +732,20 @@ export default createStore({
 		zoomedPabId(state, id){
 			state.zoomedPabId = id
 		},
+		habilitarEventosPB1(state){
+			state.eventosPab1Activos = !state.eventosPab1Activos
+		},
+		habilitarEventosPB2(state){
+			state.eventosPab2Activos = !state.eventosPab2Activos
+		},
+		habilitarEventosPB3(state){
+			state.eventosPab3Activos = !state.eventosPab3Activos
+		},
+		habilitarEventosPB4(state){
+			state.eventosPab4Activos = !state.eventosPab4Activos
+		},
+
+
 	},
 	actions: {
 		referenciarSVG({ commit }, ref){
@@ -763,7 +787,6 @@ export default createStore({
 					const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
 					commit('mostrarMP4', mostMP4)
 				}
-
 			}
 		},
 		mostrarInteres({ commit }, e) {
@@ -829,17 +852,46 @@ export default createStore({
 			if (this.state.isZoomed) {
 				if (this.state.zoomedElementId === pbSVal) {
 					mapa.style.transform = `scale(${escalado}) translate(${nX}px, ${nY}px)`;
+					
 				} else {
 					commit('zoomed', false);
 					mapa.style.transform = '';
 					commit('zoomedPabId', pbSVal);
 				}
 			} else {
+				console.log(pbSVal)
 				commit('zoomed', true);
 				commit('zoomedPabId', pbSVal);
 				mapa.style.transform = `scale(${escalado}) translate(${nX}px, ${nY}px)`;
+				if(pbSVal === 'bp1'){
+					setTimeout(() => {
+						this.state.intPab1 = !this.state.intPab1
+					}, 400);
+				} else if (pbSVal === 'bp2') {
+					setTimeout(() => {
+						this.state.intPab2 = !this.state.intPab2
+					}, 400);
+				} else if (pbSVal === 'bp3') {
+					setTimeout(() => {
+						this.state.intPab3 = !this.state.intPab3
+					}, 400);
+				} else if (pbSVal === 'bp4') {
+					setTimeout(() => {
+						this.state.intPab4 = !this.state.intPab4
+					}, 400);
+				}
+				commit('habilitarEventosPB1')
+				commit('habilitarEventosPB2')
+				commit('habilitarEventosPB3')
+				commit('habilitarEventosPB4')
+				commit('mostrarMP1', false)
+				commit('mostrarMP2', false)
+				commit('mostrarMP3', false)
+				commit('mostrarMP4', false)
 			}
+			console.log()
 		},
+
 	},
 	getters: {
 		RefSVG: state => state.referenciaSVGglob,
@@ -865,6 +917,16 @@ export default createStore({
 		DatosFoodTrucks: state => state.DatosFoodTrucks,
 		
 		HayZoomActivo: state => state.isZoomed,
+		
+		EventosActvosPB1: state => state.eventosPab1Activos,
+		EventosActvosPB2: state => state.eventosPab2Activos,
+		EventosActvosPB3: state => state.eventosPab3Activos,
+		EventosActvosPB4: state => state.eventosPab4Activos,
+
+		MostrarIntPab1: state => state.intPab1,
+		MostrarIntPab2: state => state.intPab2,
+		MostrarIntPab3: state => state.intPab3,
+		MostrarIntPab4: state => state.intPab4,
 	},
 	modules: {
 	},

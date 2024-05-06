@@ -1,5 +1,6 @@
 <template>
     <div class="contenedor_paneles">
+        <PanelCuerpoPabellones/>
         <PanelCuerpoInteres/>
 
     </div>
@@ -9,12 +10,14 @@
 
 import { mapActions } from 'vuex'
 
+import PanelCuerpoPabellones from './Paneles/PanelCuerpoPabellones'
 import PanelCuerpoInteres from './Paneles/PanelCuerpoInteres'
 
 export default {
 	name: 'ContenedorPaneles',
     components: {
-		PanelCuerpoInteres
+        PanelCuerpoPabellones,
+        PanelCuerpoInteres,
 	},
     methods: {
 		...mapActions(['mostrarInteres'])

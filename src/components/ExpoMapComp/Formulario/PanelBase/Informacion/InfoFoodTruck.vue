@@ -12,8 +12,7 @@
 
 <script>
 
-import { mapActions } from 'vuex'
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import IconFlechaIzq from '../Iconos/IconFlechaIzq.vue'
 
 export default {
