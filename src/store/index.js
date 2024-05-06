@@ -688,9 +688,10 @@ export default createStore({
 
 	},
 	mutations: {
-		// actualizarEstado(state, datos){
-		// 	Object.assign(state, datos)
-		// },
+		actualizarEstado(state, datos){
+			console.log(datos)
+			console.log(Object.assign(state, datos))
+		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
 		},
@@ -785,40 +786,47 @@ export default createStore({
 		// 	// e.target.classList.toggle('hover_Base', hoverActivo) // Cambiar el estado de la clase del target e añadiendole la clase hover_base aplicando nuevos estilos
 		// },
 		eventHover({ commit }, e) { //pocho
-			const hoverActivo = !this.state.hoverActivo
-			commit('activarHover', hoverActivo)
-			if(hoverActivo){
-				if ( e.target.id == 'bp1'){
-					const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
-					commit('mostrarMP1', mostMP1)
-				} else if ( e.target.id == 'bp2'){
-					const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
-					commit('mostrarMP2', mostMP2)
-				} else if ( e.target.id == 'bp3'){
-					const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
-					commit('mostrarMP3', mostMP3)
-				} else if ( e.target.id == 'bp4'){
-					const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
-					commit('mostrarMP4', mostMP4)
-				}
-				e.target.classList.add('hover_Base')
+			const idTarget = e.target.id
+			const marcador = `MP${idTarget[idTarget.length - 1]}`
+			const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
+			const datos = { [marcador]: { mostrado: alternado } }
+			console.log(datos)
+			// const hoverActivo = !this.state.hoverActivo
+			commit('activarHover', !this.state.hoverActivo)
+			commit('actualizarEstado', datos)
+			e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			// if(hoverActivo){
+			// 	if ( e.target.id == 'bp1'){
+			// 		const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
+			// 		commit('mostrarMP1', mostMP1)
+			// 	} else if ( e.target.id == 'bp2'){
+			// 		const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
+			// 		commit('mostrarMP2', mostMP2)
+			// 	} else if ( e.target.id == 'bp3'){
+			// 		const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
+			// 		commit('mostrarMP3', mostMP3)
+			// 	} else if ( e.target.id == 'bp4'){
+			// 		const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
+			// 		commit('mostrarMP4', mostMP4)
+			// 	}
+			// 	e.target.classList.add('hover_Base')
 				
-			} else {
-				e.target.classList.remove('hover_Base')
-				if ( e.target.id == 'bp1'){
-					const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
-					commit('mostrarMP1', mostMP1)
-				} else if ( e.target.id == 'bp2'){
-					const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
-					commit('mostrarMP2', mostMP2)
-				} else if ( e.target.id == 'bp3'){
-					const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
-					commit('mostrarMP3', mostMP3)
-				} else if ( e.target.id == 'bp4'){
-					const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
-					commit('mostrarMP4', mostMP4)
-				}
-			}
+			// } else {
+			// 	e.target.classList.remove('hover_Base')
+			// 	if ( e.target.id == 'bp1'){
+			// 		const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
+			// 		commit('mostrarMP1', mostMP1)
+			// 	} else if ( e.target.id == 'bp2'){
+			// 		const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
+			// 		commit('mostrarMP2', mostMP2)
+			// 	} else if ( e.target.id == 'bp3'){
+			// 		const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
+			// 		commit('mostrarMP3', mostMP3)
+			// 	} else if ( e.target.id == 'bp4'){
+			// 		const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
+			// 		commit('mostrarMP4', mostMP4)
+			// 	}
+			// }
 		},
 		mostrarInteres({ commit }, e) {
 			if(e.target.id == 'lavPubli'){
