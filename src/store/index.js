@@ -688,9 +688,9 @@ export default createStore({
 
 	},
 	mutations: {
-		actualizarEstado(state, datos){
-			Object.assign(state, datos)
-		},
+		// actualizarEstado(state, datos){
+		// 	Object.assign(state, datos)
+		// },
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
 		},
@@ -756,25 +756,35 @@ export default createStore({
 				commit('refSVG', ref)
 			}
 		},
-		eventHover({ commit }, e) { //buenoa
-			const hoverActivo = !this.state.hoverActivo
-			commit('activarHover', hoverActivo)
-			console.log(hoverActivo)
+		// eventHover({ commit }, e) { //buenoa
+		// 	const idTarget = e.target.id;
+		// 	const marcador = `MP${idTarget[idTarget.length - 1]}`;
+		// 	const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado;
+		// 	const datos = { [marcador]: { mostrado: alternado } };
+		
+		// 	commit('activarHover', !this.state.hoverActivo);
+		// 	commit('actualizarEstado', datos);
+		
+		// 	e.target.classList.toggle('hover_Base', this.state.hoverActivo);
+		// 	// const hoverActivo = !this.state.hoverActivo
+		// 	// commit('activarHover', hoverActivo)
 
-			const idTarget = e.target.id
-			const alternMarcador = (id) => {
-				const marcador = `MP${id[idTarget.length - 1]}`
-				console.log(marcador)
-				const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
-				const datos = { [marcador]: { mostrado: alternado } }
-				console.log(this.state.MarcadoresGlobGrand[marcador].mostrado)
-				commit('actualizarEstado', datos)
-			}
+		// 	// const idTarget = e.target.id
+		// 	// const alternMarcador = (id) => {
+		// 	// 	const marcador = `MP${id}`
+		// 	// 	console.log(marcador)
+		// 	// 	const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
+		// 	// 	const a = !this.state.MarcadoresGlobGrand[marcador].mostrado
+		// 	// 	console.log(a)
+		// 	// 	const datos = { [marcador]: { mostrado: alternado } }
+		// 	// 	commit('actualizarEstado', datos)
+		// 	// 	// console.log(this.state.MarcadoresGlobGrand[marcador].mostrado)
+		// 	// }
 
-			alternMarcador(idTarget)
-			e.target.classList.toggle('hover_Base', hoverActivo) // Cambiar el estado de la clase del target e añadiendole la clase hover_base aplicando nuevos estilos
-		},
-		eventhover({ commit }, e) { //pocho
+		// 	// alternMarcador(idTarget[idTarget.length - 1])
+		// 	// e.target.classList.toggle('hover_Base', hoverActivo) // Cambiar el estado de la clase del target e añadiendole la clase hover_base aplicando nuevos estilos
+		// },
+		eventHover({ commit }, e) { //pocho
 			const hoverActivo = !this.state.hoverActivo
 			commit('activarHover', hoverActivo)
 			if(hoverActivo){
