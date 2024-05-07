@@ -688,9 +688,8 @@ export default createStore({
 
 	},
 	mutations: {
-		actualizarEstado(state, datos){
-			console.log(datos)
-			console.log(Object.assign(state, datos))
+		actualizarEstado(state, {marcador, nuevoEstado}){
+			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
 		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
@@ -757,76 +756,16 @@ export default createStore({
 				commit('refSVG', ref)
 			}
 		},
-		// eventHover({ commit }, e) { //buenoa
-		// 	const idTarget = e.target.id;
-		// 	const marcador = `MP${idTarget[idTarget.length - 1]}`;
-		// 	const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado;
-		// 	const datos = { [marcador]: { mostrado: alternado } };
-		
-		// 	commit('activarHover', !this.state.hoverActivo);
-		// 	commit('actualizarEstado', datos);
-		
-		// 	e.target.classList.toggle('hover_Base', this.state.hoverActivo);
-		// 	// const hoverActivo = !this.state.hoverActivo
-		// 	// commit('activarHover', hoverActivo)
-
-		// 	// const idTarget = e.target.id
-		// 	// const alternMarcador = (id) => {
-		// 	// 	const marcador = `MP${id}`
-		// 	// 	console.log(marcador)
-		// 	// 	const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
-		// 	// 	const a = !this.state.MarcadoresGlobGrand[marcador].mostrado
-		// 	// 	console.log(a)
-		// 	// 	const datos = { [marcador]: { mostrado: alternado } }
-		// 	// 	commit('actualizarEstado', datos)
-		// 	// 	// console.log(this.state.MarcadoresGlobGrand[marcador].mostrado)
-		// 	// }
-
-		// 	// alternMarcador(idTarget[idTarget.length - 1])
-		// 	// e.target.classList.toggle('hover_Base', hoverActivo) // Cambiar el estado de la clase del target e añadiendole la clase hover_base aplicando nuevos estilos
-		// },
-		eventHover({ commit }, e) { //pocho
+		eventHover({ commit }, e) {
 			const idTarget = e.target.id
 			const marcador = `MP${idTarget[idTarget.length - 1]}`
-			const alternado = !this.state.MarcadoresGlobGrand[marcador].mostrado
-			const datos = { [marcador]: { mostrado: alternado } }
-			console.log(datos)
-			// const hoverActivo = !this.state.hoverActivo
+			const nuevoEstado = !this.state.MarcadoresGlobGrand[marcador].mostrado
+			// const datos = { [marcador]: { mostrado: nuevoEstado } }
+			// console.log(datos)
 			commit('activarHover', !this.state.hoverActivo)
-			commit('actualizarEstado', datos)
+			commit('actualizarEstado', { marcador, nuevoEstado: nuevoEstado })
 			e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
-			// if(hoverActivo){
-			// 	if ( e.target.id == 'bp1'){
-			// 		const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
-			// 		commit('mostrarMP1', mostMP1)
-			// 	} else if ( e.target.id == 'bp2'){
-			// 		const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
-			// 		commit('mostrarMP2', mostMP2)
-			// 	} else if ( e.target.id == 'bp3'){
-			// 		const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
-			// 		commit('mostrarMP3', mostMP3)
-			// 	} else if ( e.target.id == 'bp4'){
-			// 		const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
-			// 		commit('mostrarMP4', mostMP4)
-			// 	}
-			// 	e.target.classList.add('hover_Base')
-				
-			// } else {
-			// 	e.target.classList.remove('hover_Base')
-			// 	if ( e.target.id == 'bp1'){
-			// 		const mostMP1 = !this.state.MarcadoresGlobGrand.MP1.mostrado
-			// 		commit('mostrarMP1', mostMP1)
-			// 	} else if ( e.target.id == 'bp2'){
-			// 		const mostMP2 = !this.state.MarcadoresGlobGrand.MP2.mostrado
-			// 		commit('mostrarMP2', mostMP2)
-			// 	} else if ( e.target.id == 'bp3'){
-			// 		const mostMP3 = !this.state.MarcadoresGlobGrand.MP3.mostrado
-			// 		commit('mostrarMP3', mostMP3)
-			// 	} else if ( e.target.id == 'bp4'){
-			// 		const mostMP4 = !this.state.MarcadoresGlobGrand.MP4.mostrado
-			// 		commit('mostrarMP4', mostMP4)
-			// 	}
-			// }
+
 		},
 		mostrarInteres({ commit }, e) {
 			if(e.target.id == 'lavPubli'){
@@ -905,19 +844,19 @@ export default createStore({
 				if(pbSVal === 'bp1'){
 					setTimeout(() => {
 						this.state.intPab1 = !this.state.intPab1
-					}, 400);
+					}, 300);
 				} else if (pbSVal === 'bp2') {
 					setTimeout(() => {
 						this.state.intPab2 = !this.state.intPab2
-					}, 400);
+					}, 300);
 				} else if (pbSVal === 'bp3') {
 					setTimeout(() => {
 						this.state.intPab3 = !this.state.intPab3
-					}, 400);
+					}, 300);
 				} else if (pbSVal === 'bp4') {
 					setTimeout(() => {
 						this.state.intPab4 = !this.state.intPab4
-					}, 400);
+					}, 300);
 				}
 				commit('habilitarEventosPB1')
 				commit('habilitarEventosPB2')

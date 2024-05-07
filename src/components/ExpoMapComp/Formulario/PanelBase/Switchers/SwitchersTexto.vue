@@ -26,7 +26,7 @@ export default {
     text-align: left;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     // border: 0.5px solid red;
 }
 

@@ -36,8 +36,10 @@ export default {
     border-radius: 15px;
     text-align: center;
     overflow: auto;
-	scrollbar-width: thin;
+    scrollbar-width: thin;
     padding: 5%;
-    transition: all 0.5s;    
+    transition: all 0.5s;
+    box-shadow: 0px 0px 3px 0px black
+
 }
 </style>

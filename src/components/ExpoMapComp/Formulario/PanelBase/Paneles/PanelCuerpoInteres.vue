@@ -89,6 +89,7 @@ export default {
     h1{
         text-align: center;
         font-size: 2vw;
+        font-weight: bold;
     }
 }
 

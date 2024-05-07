@@ -1,7 +1,6 @@
 <template>
 	<div class="InfoFoodTruck">
         <div class="Contenido_ft">
-            <!-- <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift.data_id, ift.id)">-->
             <div v-for="ift in DatosFoodTrucks" :key="ift.id" :id="ift.id" :data-id="ift.data_id" class="foodtruck" @click="verFTenelMapa(ift)"> <!-- El Tag data-id hace referencia al id de los puntos del marca de los FoodTrucks -->
                 <IconFlechaIzq class="flecha"/>
                 <p class="textoFT">{{ ift.nombre_ft }}</p>
