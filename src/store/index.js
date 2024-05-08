@@ -663,6 +663,25 @@ export default createStore({
 			{id: 'ftd_12', data_id: 'ft_12', nombre_ft: 'Hamburguesas'},
 			{id: 'ftd_13', data_id: 'ft_13', nombre_ft: 'Pizzas'},
 		],
+		TextDespPabs: {
+			pabe1: {
+				id: 'idPabe1', 
+				nombre: 'Pabellón1', 
+			},
+			pabe2: {
+				id: 'idPabe2', 
+				nombre: 'Pabellón2', 
+			},
+			pabe3: {
+				id: 'idPabe3', 
+				nombre: 'Pabellón3', 
+			},
+			pabe4: {
+				id: 'idPabe4', 
+				nombre: 'Pabellón4', 
+			},
+
+		},
 
 		referenciaSVGglob: null, 
 
@@ -685,11 +704,20 @@ export default createStore({
 		intPab3: false,
 		intPab4: false,
 
+		desP1: false,
+		desP2: false,
+		desP3: false,
+		desP4: false,
+
 
 	},
 	mutations: {
 		actualizarEstado(state, {marcador, nuevoEstado}){
 			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
+		},
+		invertirEstado(state, variable){
+			// console.log(state[variable])
+			state[variable] = !state[variable]
 		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
@@ -716,6 +744,10 @@ export default createStore({
 			state.MostLabavos = valorOriginal
 			state.MostSalidaEmergencia = valorOriginal
 			state.MostFoodTrucks = valorOriginal
+			state.desP1 = valorOriginal
+			state.desP2 = valorOriginal
+			state.desP3 = valorOriginal
+			state.desP4 = valorOriginal
 		},
 		mostrarLavabos(state, MostLabavos){
 			state.MostLabavos = MostLabavos
@@ -751,6 +783,16 @@ export default createStore({
 
 	},
 	actions: {
+		invertirValorVar({commit}, e){
+			const vari = e.target.dataset.vari
+			commit('invertirEstado', vari)
+			const estadoVariable = this.state[vari];
+			if (estadoVariable) {
+				e.target.classList.add('radiusPSel');
+			} else {
+				e.target.classList.remove('radiusPSel');
+			}
+		},
 		referenciarSVG({ commit }, ref){
 			if(this.state.referenciaSVGglob == null){
 				commit('refSVG', ref)
@@ -758,13 +800,21 @@ export default createStore({
 		},
 		eventHover({ commit }, e) {
 			const idTarget = e.target.id
-			const marcador = `MP${idTarget[idTarget.length - 1]}`
-			const nuevoEstado = !this.state.MarcadoresGlobGrand[marcador].mostrado
-			// const datos = { [marcador]: { mostrado: nuevoEstado } }
-			// console.log(datos)
-			commit('activarHover', !this.state.hoverActivo)
-			commit('actualizarEstado', { marcador, nuevoEstado: nuevoEstado })
-			e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			const idTargetForm = e.target.dataset.id
+
+			
+			if(idTarget.length > 0){
+				// const marcador = `MP${idTarget[idTarget.length - 1]}`
+				// const nuevoEstado = !this.state.MarcadoresGlobGrand[marcador].mostrado
+				commit('activarHover', !this.state.hoverActivo)
+				// commit('actualizarEstado', { marcador, nuevoEstado: nuevoEstado })
+				e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			} else {
+				commit('activarHover', !this.state.hoverActivo)
+				const pabeOri = document.getElementById(idTargetForm)
+				pabeOri.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			}
+			
 
 		},
 		mostrarInteres({ commit }, e) {
@@ -807,6 +857,8 @@ export default createStore({
 		zoomIn({ commit }, e){ // EN DESARROLLO
 			var mapa = this.state.referenciaSVGglob
 			var pabSelected = mapa.getElementById(e.target.id)
+			console.log()
+			console.log(pabSelected)
 			var rect = pabSelected.getBoundingClientRect()
 
 			
@@ -905,6 +957,13 @@ export default createStore({
 		MostrarIntPab2: state => state.intPab2,
 		MostrarIntPab3: state => state.intPab3,
 		MostrarIntPab4: state => state.intPab4,
+
+		DesplegP1: state => state.desP1,
+		DesplegP2: state => state.desP2,
+		DesplegP3: state => state.desP3,
+		DesplegP4: state => state.desP4,
+		
+		InfoPabesDesp: state => state.TextDespPabs,
 	},
 	modules: {
 	},

@@ -116,6 +116,15 @@ body {
 	opacity: 0;
 }
 
+.despleg-enter-active, .despleg-leave-active {
+	transition: all .1s;
+}
+.despleg-enter-from, .despleg-leave-to {
+	opacity: 0.1;
+	height: 0;
+
+}
+
 .animacionCompFT {
 	animation: animacionComponente 1s ease;
 }

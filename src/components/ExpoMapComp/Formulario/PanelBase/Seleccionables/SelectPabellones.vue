@@ -1,11 +1,11 @@
 <template>
-	<div class="SelectPabellones">
+	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event)">
         <div class="t">
             <div class="nomPabe">
-                <p>Pabellón 1</p>
+                <p>{{ pabProp }}</p>
             </div>
-            <div class="aaaaa">
-                <IconFlechaIzq2 class="fleee"/>
+            <div class="contFle">
+                <IconFlechaIzq2 class="flechaPab"/>
             </div>
         </div>
 	</div>
@@ -19,10 +19,14 @@ import IconFlechaIzq2 from '../Iconos/IconFlechaIzq2.vue'
 export default {
 	name: 'SelectPabellones',
     props: {
-        textProp: String,
+        pabProp: String,
+        idProp: String,
+        variMost: String,
     },
     methods: {
 		...mapActions([
+            'eventHover',
+            'invertirValorVar',
         ])
 	},
     computed: {
@@ -49,6 +53,10 @@ export default {
     align-items: center;
     transition: 0.1s;
     cursor: pointer;
+    pointer-events: auto;
+}
+.radiusPSel{
+	border-radius: 15px 15px 0px 0px;
 }
 .SelectPabellones:hover{
     box-shadow: 0px 0px 3px 0px black;
@@ -59,6 +67,7 @@ export default {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    pointer-events: none;
     // background: red;
 }
 .nomPabe{
@@ -68,7 +77,7 @@ export default {
     // background: blue;
 }
 
-.aaaaa{
+.contFle{
     width: 10%;
     display: flex;
     justify-content: center;
@@ -76,7 +85,7 @@ export default {
 
 }
 
-// .fleee{
+// .flechaPab{
 //     // background: yellow; 
     
 // }
