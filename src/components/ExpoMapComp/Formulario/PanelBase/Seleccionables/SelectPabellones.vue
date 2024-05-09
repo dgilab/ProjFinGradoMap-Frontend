@@ -1,10 +1,11 @@
 <template>
-	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event)">
+	<!-- <div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="!despleg ? eventHover($event) : abc()" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" > -->
+	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" >
         <div class="t">
             <div class="nomPabe">
                 <p>{{ pabProp }}</p>
             </div>
-            <div class="contFle">
+            <div class="contFle" :id="idFlecha">
                 <IconFlechaIzq2 class="flechaPab"/>
             </div>
         </div>
@@ -22,15 +23,22 @@ export default {
         pabProp: String,
         idProp: String,
         variMost: String,
+        idFlecha: String,
+        despleg: Boolean,
     },
     methods: {
 		...mapActions([
             'eventHover',
             'invertirValorVar',
-        ])
+            'invertFlecha',
+        ]),
+        abc(){
+            console.log("a")
+        }
 	},
     computed: {
         ...mapGetters([
+
         ])
     },
     components: {
@@ -47,7 +55,7 @@ export default {
     padding: 1vh;
     border-radius: 15px;
     background: var(--build-color-light-grey);
-    display: flex;
+    display:pointer;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -82,6 +90,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .1s;
 
 }
 

@@ -1,7 +1,10 @@
 <template>
 	<div class="DesplePabellones">
-        <div class="VerEnMapaDes" :data-idRela="idRelacMap" @click="zoomIn($event)">
-            <p>Ampliar en el mapa</p>
+        <div class="VerEnMapaDes" :data-idRela="idRelacMap" @click="zoomIn(idRelacMap)" :class="{ 'disabled': HayZoomActivo }">
+            <p><i class="fa-solid fa-magnifying-glass-plus"></i>  Ampliar</p>
+        </div>
+        <div class="VerEnMapaDes" :data-idRela="idRelacMap" @click="zoomOut(idRelacMap)" :class="{ 'disabled': !HayZoomActivo }">
+            <p><i class="fa-solid fa-magnifying-glass-minus"></i>  Alejar</p>
         </div>
 	</div>
 </template>
@@ -18,11 +21,13 @@ export default {
     },
     methods: {
 		...mapActions([
-            'zoomIn'
+            'zoomIn',
+            'zoomOut'
         ])
 	},
     computed: {
         ...mapGetters([
+            'HayZoomActivo',
         ])
     },
     components: {
@@ -34,14 +39,31 @@ export default {
 <style lang="scss" scoped>
 
 .DesplePabellones{
-    // width: 90%;
-    // padding: 1vh;
-    border-radius: 0px 0px 30px 30px;
-    background: var(--bs-gray-500);
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;#ECECEC
+    border-radius: 0px 0px 15px 15px;
+    background: var(--bs-gray-400);
+    padding-block: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
 }
+.VerEnMapaDes{
+    padding-block: 2%;
+    border-radius: 15px;
+    cursor: pointer;
+    background: var(--bs-gray-200);
+    width: 45%;
+    transition: all .2s;
+}
+
+.disabled{
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.VerEnMapaDes:hover{
+    box-shadow: 0px 0px 3px 0px black;
+}
+
 
 </style>

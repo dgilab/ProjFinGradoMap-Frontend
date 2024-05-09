@@ -1,3 +1,4 @@
+// import { compile } from 'vue'
 import { createStore } from 'vuex'
 
 export default createStore({
@@ -709,6 +710,8 @@ export default createStore({
 		desP3: false,
 		desP4: false,
 
+		desplegado: false,
+
 
 	},
 	mutations: {
@@ -716,7 +719,7 @@ export default createStore({
 			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
 		},
 		invertirEstado(state, variable){
-			// console.log(state[variable])
+			console.log(this.state.desP1, this.state.desP2, this.state.desP3, this.state.desP4,)
 			state[variable] = !state[variable]
 		},
 		refSVG(state, refSVGglob){
@@ -748,6 +751,10 @@ export default createStore({
 			state.desP2 = valorOriginal
 			state.desP3 = valorOriginal
 			state.desP4 = valorOriginal
+			state.intPab1 = valorOriginal
+			state.intPab2 = valorOriginal
+			state.intPab3 = valorOriginal
+			state.intPab4 = valorOriginal
 		},
 		mostrarLavabos(state, MostLabavos){
 			state.MostLabavos = MostLabavos
@@ -856,11 +863,14 @@ export default createStore({
 		},
 		zoomIn({ commit }, e){ // EN DESARROLLO
 			var mapa = this.state.referenciaSVGglob
-			var pabSelected = mapa.getElementById(e.target.id)
-			console.log()
-			console.log(pabSelected)
+			var pabSelected
+			
+			if(typeof e === 'string'){
+				pabSelected = mapa.getElementById(e);
+			} else if(e && e.target){
+				pabSelected = mapa.getElementById(e.target.id);
+			}
 			var rect = pabSelected.getBoundingClientRect()
-
 			
 			var cX = rect.left + rect.width / 2
 			var cY = rect.top + rect.height / 2
@@ -920,6 +930,54 @@ export default createStore({
 				commit('mostrarMP4', false)
 			}
 			console.log()
+		},
+		zoomOut({ commit }, e){ // EN DESARROLLO
+			var mapa = this.state.referenciaSVGglob
+			var pabSelected
+			pabSelected = mapa.getElementById(e);
+			console.log(pabSelected)
+			console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
+			// var pbSVal = pabSelected.id
+			console.log("zoomOut")
+			commit('zoomed', false);
+			mapa.style.transform = '';
+			setTimeout(() => {
+				this.state.intPab1 = false
+				this.state.intPab2 = false
+				this.state.intPab3 = false
+				this.state.intPab4 = false
+			}, 200);
+			console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
+		},
+		invertFlecha({commit}, e){
+			commit('invertirEstado', this.state.desP1)
+			commit('invertirEstado', this.state.desP2)
+			commit('invertirEstado', this.state.desP3)
+			commit('invertirEstado', this.state.desP4)
+
+			const id = e.target.dataset.id
+			var ids = {
+				bp1: 'fleP1',
+				bp2: 'fleP2',
+				bp3: 'fleP3',
+				bp4: 'fleP4',
+			}
+			if(this.state.desP1==false && this.state.desP2==false && this.state.desP3==false && this.state.desP4==false){
+				for(var i in ids){
+					var flechas = document.getElementById(ids[i])
+					flechas.classList.remove('rotar')
+				}
+			} else {
+				const flecha = document.getElementById(ids[id])
+				flecha.classList.add('rotar')
+			}
+			
+		},
+		desplegarFrm({commit}, e){
+
+
+			console.log(e)
+			console.log(commit)
 		},
 
 	},

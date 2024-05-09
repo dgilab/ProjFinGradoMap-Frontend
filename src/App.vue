@@ -125,6 +125,10 @@ body {
 
 }
 
+.rotar{
+	transform: rotate(180deg);
+}
+
 .animacionCompFT {
 	animation: animacionComponente 1s ease;
 }
