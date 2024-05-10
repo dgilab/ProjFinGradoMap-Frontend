@@ -1,11 +1,10 @@
 <template>
-	<!-- <div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="!despleg ? eventHover($event) : abc()" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" > -->
-	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" >
+	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" :class="{ 'radiusPSel': despleg }">
         <div class="t">
             <div class="nomPabe">
                 <p>{{ pabProp }}</p>
             </div>
-            <div class="contFle" :id="idFlecha">
+            <div class="contFle" :id="idFlecha" :class="{ 'rotar': despleg }">
                 <IconFlechaIzq2 class="flechaPab"/>
             </div>
         </div>

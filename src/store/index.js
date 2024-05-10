@@ -719,13 +719,15 @@ export default createStore({
 			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
 		},
 		invertirEstado(state, variable){
-			console.log(this.state.desP1, this.state.desP2, this.state.desP3, this.state.desP4,)
+			// console.log(this.state.desP1, this.state.desP2, this.state.desP3, this.state.desP4,)
 			state[variable] = !state[variable]
+			// console.log(variable)
 		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
 		},
 		activarHover(state, hoverActivo){
+			// console.log(hoverActivo)
 			state.hoverActivo = hoverActivo
 		},
 		activarMMG(state, hoverActivo){
@@ -786,19 +788,29 @@ export default createStore({
 		habilitarEventosPB4(state){
 			state.eventosPab4Activos = !state.eventosPab4Activos
 		},
-
+		cerrarDesplegAbiertos(state, elActu){
+			for (let key in state) {
+				if (key.startsWith('desP') && key !== elActu) {
+					state[key] = false
+					console.log(state[key])
+				}
+			}
+		},
 
 	},
 	actions: {
 		invertirValorVar({commit}, e){
 			const vari = e.target.dataset.vari
+			console.log(vari)
+			commit('cerrarDesplegAbiertos', vari)
 			commit('invertirEstado', vari)
-			const estadoVariable = this.state[vari];
-			if (estadoVariable) {
-				e.target.classList.add('radiusPSel');
-			} else {
-				e.target.classList.remove('radiusPSel');
-			}
+			// const estadoVariable = this.state[vari];
+			// // console.log(estadoVariable)
+			// if (estadoVariable) {
+			// 	e.target.classList.add('radiusPSel');
+			// } else {
+			// 	e.target.classList.remove('radiusPSel');
+			// }
 		},
 		referenciarSVG({ commit }, ref){
 			if(this.state.referenciaSVGglob == null){
@@ -899,7 +911,7 @@ export default createStore({
 					commit('zoomedPabId', pbSVal);
 				}
 			} else {
-				console.log(pbSVal)
+				// console.log(pbSVal)
 				commit('zoomed', true);
 				commit('zoomedPabId', pbSVal);
 				mapa.style.transform = `scale(${escalado}) translate(${nX}px, ${nY}px)`;
@@ -929,16 +941,17 @@ export default createStore({
 				commit('mostrarMP3', false)
 				commit('mostrarMP4', false)
 			}
-			console.log()
 		},
 		zoomOut({ commit }, e){ // EN DESARROLLO
 			var mapa = this.state.referenciaSVGglob
-			var pabSelected
-			pabSelected = mapa.getElementById(e);
-			console.log(pabSelected)
-			console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
+			e.target
+			// console.log(e)
+			// var pabSelected
+			// pabSelected = mapa.getElementById(e);
+			// console.log(pabSelected)
+			// console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
 			// var pbSVal = pabSelected.id
-			console.log("zoomOut")
+			// console.log("zoomOut")
 			commit('zoomed', false);
 			mapa.style.transform = '';
 			setTimeout(() => {
@@ -947,38 +960,45 @@ export default createStore({
 				this.state.intPab3 = false
 				this.state.intPab4 = false
 			}, 200);
-			console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
+			commit('habilitarEventosPB1')
+			commit('habilitarEventosPB2')
+			commit('habilitarEventosPB3')
+			commit('habilitarEventosPB4')
+			// console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
 		},
 		invertFlecha({commit}, e){
+			// console.log(e)
+			e.target
 			commit('invertirEstado', this.state.desP1)
 			commit('invertirEstado', this.state.desP2)
 			commit('invertirEstado', this.state.desP3)
 			commit('invertirEstado', this.state.desP4)
 
-			const id = e.target.dataset.id
-			var ids = {
-				bp1: 'fleP1',
-				bp2: 'fleP2',
-				bp3: 'fleP3',
-				bp4: 'fleP4',
-			}
-			if(this.state.desP1==false && this.state.desP2==false && this.state.desP3==false && this.state.desP4==false){
-				for(var i in ids){
-					var flechas = document.getElementById(ids[i])
-					flechas.classList.remove('rotar')
-				}
-			} else {
-				const flecha = document.getElementById(ids[id])
-				flecha.classList.add('rotar')
-			}
+			// const id = e.target.dataset.id
+			// var ids = {
+			// 	bp1: 'fleP1',
+			// 	bp2: 'fleP2',
+			// 	bp3: 'fleP3',
+			// 	bp4: 'fleP4',
+			// }
+			// if(this.state.desP1==false && this.state.desP2==false && this.state.desP3==false && this.state.desP4==false){
+			// 	for(var i in ids){
+			// 		var flechas = document.getElementById(ids[i])
+			// 		flechas.classList.remove('rotar')
+			// 	}
+			// } else {
+			// 	const flecha = document.getElementById(ids[id])
+			// 	console.log(flecha)
+			// 	flecha.classList.add('rotar')
+			// }
 			
 		},
-		desplegarFrm({commit}, e){
+		// desplegarFrm({commit}, e){
 
 
-			console.log(e)
-			console.log(commit)
-		},
+		// 	console.log(e)
+		// 	console.log(commit)
+		// },
 
 	},
 	getters: {

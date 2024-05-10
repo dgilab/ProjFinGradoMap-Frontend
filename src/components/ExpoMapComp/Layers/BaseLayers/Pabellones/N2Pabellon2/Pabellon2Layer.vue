@@ -2,7 +2,7 @@
 	<g id="Nivel2Pabellon2">
 		<g id="capaPabellon2">
 			<title>Pabellón 2</title>
-			<polygon v-if="EventosActvosPB2" id="bp2" class="cls_8" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" v-on:click="zoomIn($event)" points="41.55 440.25 131.2 440.25 220.85 440.25 220.85 609.3 220.85 778.35 131.2 778.35 41.55 778.35 41.55 609.3 41.55 440.25" />
+			<polygon v-if="EventosActvosPB2" id="bp2" class="cls_8" data-vari="desP2" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" v-on:click="zoomIn($event) , invertirValorVar($event)" points="41.55 440.25 131.2 440.25 220.85 440.25 220.85 609.3 220.85 778.35 131.2 778.35 41.55 778.35 41.55 609.3 41.55 440.25" />
 			<polygon v-else id="bp2" class="cls_8" points="41.55 440.25 131.2 440.25 220.85 440.25 220.85 609.3 220.85 778.35 131.2 778.35 41.55 778.35 41.55 609.3 41.55 440.25" />
 		</g>
 		<transition name="mostP">
@@ -29,7 +29,8 @@ export default {
 	methods: {
 		...mapActions([
 			'eventHover',
-			'zoomIn'
+			'zoomIn',
+			'invertirValorVar'
 		]),
 	},
 	computed: {
