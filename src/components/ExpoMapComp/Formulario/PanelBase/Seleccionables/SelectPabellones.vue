@@ -1,5 +1,6 @@
 <template>
-	<div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" :class="{ 'radiusPSel': despleg }">
+    <!-- <div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)" @click="invertirValorVar($event), invertFlecha($event)" :class="{ 'radiusPSel': despleg }"> -->
+    <div class="SelectPabellones" id="" :data-id="idProp" :data-vari="variMost" @click="invertirValorVar($event), invertFlecha($event)" :class="{ 'radiusPSel': despleg }">
         <div class="t">
             <div class="nomPabe">
                 <p>{{ pabProp }}</p>

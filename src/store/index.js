@@ -719,6 +719,7 @@ export default createStore({
 			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
 		},
 		invertirEstado(state, variable){
+			console.log(state[variable], "esto essss")
 			// console.log(this.state.desP1, this.state.desP2, this.state.desP3, this.state.desP4,)
 			state[variable] = !state[variable]
 			// console.log(variable)
@@ -818,21 +819,23 @@ export default createStore({
 			}
 		},
 		eventHover({ commit }, e) {
-			const idTarget = e.target.id
-			const idTargetForm = e.target.dataset.id
-
+			// const idTarget = e.target.id
+			// const idTargetForm = e.target.dataset.id
+			// console.log(idTarget, idTargetForm)
 			
-			if(idTarget.length > 0){
+			// if(idTarget.length > 0){
 				// const marcador = `MP${idTarget[idTarget.length - 1]}`
 				// const nuevoEstado = !this.state.MarcadoresGlobGrand[marcador].mostrado
-				commit('activarHover', !this.state.hoverActivo)
+				// console.log(this.state.hoverActivo)
+			commit('activarHover', !this.state.hoverActivo)
 				// commit('actualizarEstado', { marcador, nuevoEstado: nuevoEstado })
-				e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
-			} else {
-				commit('activarHover', !this.state.hoverActivo)
-				const pabeOri = document.getElementById(idTargetForm)
-				pabeOri.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
-			}
+			e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			// } else {
+				// console.log(this.state.hoverActivo)
+				// commit('activarHover', !this.state.hoverActivo)
+				// const pabeOri = document.getElementById(idTargetForm)
+				// pabeOri.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
+			// }
 			
 
 		},
