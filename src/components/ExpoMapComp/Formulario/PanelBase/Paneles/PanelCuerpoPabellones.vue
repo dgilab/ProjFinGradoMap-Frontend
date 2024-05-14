@@ -9,7 +9,7 @@
                     <SelectPabellones :pabProp="nomP1" :idProp="idP1" :variMost="vM1" :idFlecha="idflecha1" :despleg="DesplegP1"/>
                     <transition name="despleg">
                         <div v-if="DesplegP1">
-                            <DesplePabellones :pabNom="nomP1" :idProp="idPabe1" :idRelacMap="idP1" />
+                            <DesplePabellones :pabNom="nomP1" :idProp="idPabe1" :variMost="vM1" :idRelacMap="idP1" :despleg="DesplegP1"/>
                         </div>
                     </transition>
                 </div>
@@ -17,7 +17,7 @@
                     <SelectPabellones :pabProp="nomP2" :idProp="idP2" :variMost="vM2" :idFlecha="idflecha2" :despleg="DesplegP2" />
                     <transition name="despleg">
                         <div v-if="DesplegP2">
-                            <DesplePabellones :pabNom="nomP2" :idProp="idPabe2" :idRelacMap="idP2" />
+                            <DesplePabellones :pabNom="nomP2" :idProp="idPabe2" :variMost="vM2" :idRelacMap="idP2" :despleg="DesplegP2"/>
                         </div>
                     </transition>
                 </div>
@@ -25,7 +25,7 @@
                     <SelectPabellones :pabProp="nomP3" :idProp="idP3" :variMost="vM3" :idFlecha="idflecha3" :despleg="DesplegP3" />
                     <transition name="despleg">
                         <div v-if="DesplegP3">
-                            <DesplePabellones :pabNom="nomP3" :idProp="idPabe3" :idRelacMap="idP3" />
+                            <DesplePabellones :pabNom="nomP3" :idProp="idPabe3" :variMost="vM3" :idRelacMap="idP3" :despleg="DesplegP3"/>
                         </div>
                     </transition>
                 </div>
@@ -33,7 +33,7 @@
                     <SelectPabellones :pabProp="nomP4" :idProp="idP4" :variMost="vM4" :idFlecha="idflecha4" :despleg="DesplegP4" />
                     <transition name="despleg">
                         <div v-if="DesplegP4">
-                            <DesplePabellones :pabNom="nomP4" :idProp="idPabe4" :idRelacMap="idP4" />
+                            <DesplePabellones :pabNom="nomP4" :idProp="idPabe4" :variMost="vM4" :idRelacMap="idP4" :despleg="DesplegP4"/>
                         </div>
                     </transition>
                 </div>

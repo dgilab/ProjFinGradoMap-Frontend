@@ -3,7 +3,7 @@
         <div class="VerEnMapaDes" :data-idRela="idRelacMap" @click="zoomIn(idRelacMap)" :class="{ 'disabled': HayZoomActivo }">
             <p><i class="fa-solid fa-magnifying-glass-plus"></i>  Ampliar</p>
         </div>
-        <div class="VerEnMapaDes" :data-idRela="idRelacMap" @click="zoomOut(idRelacMap)" :class="{ 'disabled': !HayZoomActivo }">
+        <div class="VerEnMapaDes" :data-idRela="idRelacMap" :data-vari="variMost" @click="zoomOut(idRelacMap), aplicarInvertir($event)" :class="{ 'disabled': !HayZoomActivo }">
             <p><i class="fa-solid fa-magnifying-glass-minus"></i>  Alejar</p>
         </div>
 	</div>
@@ -18,12 +18,22 @@ export default {
     props: {
         idProp: String,
         idRelacMap: String,
+        despleg: Boolean,
+        variMost: String,
     },
     methods: {
 		...mapActions([
             'zoomIn',
-            'zoomOut'
-        ])
+            'zoomOut',
+            'invertirValorVar',
+        ]),
+        aplicarInvertir(e){
+            console.log(this.despleg)
+            if(this.despleg){
+                // console.log("w3")
+                this.invertirValorVar(e)
+            }
+        }
 	},
     computed: {
         ...mapGetters([

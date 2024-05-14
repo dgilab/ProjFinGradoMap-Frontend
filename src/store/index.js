@@ -719,10 +719,7 @@ export default createStore({
 			state.MarcadoresGlobGrand[marcador].mostrado = nuevoEstado
 		},
 		invertirEstado(state, variable){
-			console.log(state[variable], "esto essss")
-			// console.log(this.state.desP1, this.state.desP2, this.state.desP3, this.state.desP4,)
 			state[variable] = !state[variable]
-			// console.log(variable)
 		},
 		refSVG(state, refSVGglob){
 			state.referenciaSVGglob = refSVGglob
@@ -793,7 +790,6 @@ export default createStore({
 			for (let key in state) {
 				if (key.startsWith('desP') && key !== elActu) {
 					state[key] = false
-					console.log(state[key])
 				}
 			}
 		},
@@ -802,16 +798,8 @@ export default createStore({
 	actions: {
 		invertirValorVar({commit}, e){
 			const vari = e.target.dataset.vari
-			console.log(vari)
 			commit('cerrarDesplegAbiertos', vari)
 			commit('invertirEstado', vari)
-			// const estadoVariable = this.state[vari];
-			// // console.log(estadoVariable)
-			// if (estadoVariable) {
-			// 	e.target.classList.add('radiusPSel');
-			// } else {
-			// 	e.target.classList.remove('radiusPSel');
-			// }
 		},
 		referenciarSVG({ commit }, ref){
 			if(this.state.referenciaSVGglob == null){
