@@ -10,6 +10,9 @@
                     <transition name="despleg">
                         <div v-if="DesplegP1">
                             <DesplePabellones :pabNom="nomP1" :idProp="idPabe1" :variMost="vM1" :idRelacMap="idP1" :despleg="DesplegP1"/>
+                            <div v-if="HayZoomActivo && DesplegP1" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
+                                <LeyendaPuestos :leMost="leDataP1"/>
+                            </div>
                         </div>
                     </transition>
                 </div>
@@ -18,6 +21,9 @@
                     <transition name="despleg">
                         <div v-if="DesplegP2">
                             <DesplePabellones :pabNom="nomP2" :idProp="idPabe2" :variMost="vM2" :idRelacMap="idP2" :despleg="DesplegP2"/>
+                            <div v-if="HayZoomActivo && DesplegP2" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
+                                <LeyendaPuestos :leMost="leDataP2"/>
+                            </div>
                         </div>
                     </transition>
                 </div>
@@ -34,6 +40,9 @@
                     <transition name="despleg">
                         <div v-if="DesplegP4">
                             <DesplePabellones :pabNom="nomP4" :idProp="idPabe4" :variMost="vM4" :idRelacMap="idP4" :despleg="DesplegP4"/>
+                            <div v-if="HayZoomActivo && DesplegP4" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
+                                <LeyendaPuestos :leMost="leDataP4"/>
+                            </div>
                         </div>
                     </transition>
                 </div>
@@ -50,6 +59,8 @@ import { mapGetters } from 'vuex'
 
 import SelectPabellones from '../Seleccionables/SelectPabellones'
 import DesplePabellones from '../Desplegables/DesplePabellones'
+import LeyendaPuestos from '../Leyenda/LeyendaPuestos'
+
 
 export default {
 	name: 'PanelCuerpoPabellones',
@@ -75,11 +86,16 @@ export default {
             idflecha3: "fleP3",
             idflecha4: "fleP4",
 
+            leDataP1: [1,2,3],
+            leDataP2: [1,2],
+            leDataP4: [1,2],
+
         }
     },
     components: {
         SelectPabellones,
         DesplePabellones,
+        LeyendaPuestos,
 	},
     computed: {
 		...mapGetters([
@@ -139,6 +155,10 @@ export default {
     flex-direction: column;
 }
 
+.desLeyenda{
+    margin-top: 0.5rem;
+    display: block;
+}
 
 
 
