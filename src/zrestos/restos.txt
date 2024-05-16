@@ -1,0 +1,1 @@
+v-on:mouseover="eventHover($event)" v-on:mouseleave="eventHover($event)"
