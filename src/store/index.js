@@ -664,6 +664,23 @@ export default createStore({
 			{id: 'ftd_12', data_id: 'ft_12', nombre_ft: 'Hamburguesas'},
 			{id: 'ftd_13', data_id: 'ft_13', nombre_ft: 'Pizzas'},
 		],
+		DatosStandsPabellones: {
+			pab1: [
+				{ id: 'sp1_01_d', nombre: 'PhotoCall'},
+				{ id: 'sp1_02_d', nombre: 'Zona Talleres 1'},
+				{ id: 'sp1_03_d', nombre: 'Zona Talleres 2'},
+				{ id: 'sp1_04_d', nombre: 'Zona Talleres 3'},
+				{ id: 'sp1_05_d', nombre: 'Circuito de Aventura'},
+				{ id: 'sp1_06_d', nombre: 'Zona Talleres 4'},
+				{ id: 'sp1_07_d', nombre: 'Zona Animal'},
+				{ id: 'sp1_08_d', nombre: 'Atelier'},
+				{ id: 'sp1_09_d', nombre: 'Piriné'},
+				{ id: 'sp1_10_d', nombre: 'Colores de Monstruo'},
+				{ id: 'sp1_11_d', nombre: 'El Carrofil'},
+				{ id: 'sp1_12_d', nombre: 'Cúpula'},
+				{ id: 'sp1_13_d', nombre: 'Construye!'},
+			]
+		},
 		TextDespPabs: {
 			pabe1: {
 				id: 'idPabe1', 
@@ -1019,6 +1036,8 @@ export default createStore({
 		DesplegP4: state => state.desP4,
 		
 		InfoPabesDesp: state => state.TextDespPabs,
+
+		DStandsPabellones: state => state.DatosStandsPabellones,
 	},
 	modules: {
 	},

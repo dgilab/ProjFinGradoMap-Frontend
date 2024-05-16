@@ -13,6 +13,9 @@
                             <div v-if="HayZoomActivo && DesplegP1" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
                                 <LeyendaPuestos :leMost="leDataP1"/>
                             </div>
+                            <div v-if="HayZoomActivo && DesplegP1" class="desInfoStands" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
+                                <InfoStands/>
+                            </div>
                         </div>
                     </transition>
                 </div>
@@ -60,6 +63,7 @@ import { mapGetters } from 'vuex'
 import SelectPabellones from '../Seleccionables/SelectPabellones'
 import DesplePabellones from '../Desplegables/DesplePabellones'
 import LeyendaPuestos from '../Leyenda/LeyendaPuestos'
+import InfoStands from '../Informacion/InfoStands'
 
 
 export default {
@@ -96,6 +100,7 @@ export default {
         SelectPabellones,
         DesplePabellones,
         LeyendaPuestos,
+        InfoStands,
 	},
     computed: {
 		...mapGetters([
@@ -156,6 +161,10 @@ export default {
 }
 
 .desLeyenda{
+    margin-top: 0.5rem;
+    display: block;
+}
+.desInfoStands{
     margin-top: 0.5rem;
     display: block;
 }
