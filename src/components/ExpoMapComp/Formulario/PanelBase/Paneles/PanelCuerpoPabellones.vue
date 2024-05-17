@@ -13,8 +13,8 @@
                             <div v-if="HayZoomActivo && DesplegP1" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
                                 <LeyendaPuestos :leMost="leDataP1"/>
                             </div>
-                            <div v-if="HayZoomActivo && DesplegP1" class="desInfoStands" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
-                                <InfoStands/>
+                            <div v-if="HayZoomActivo && DesplegP1" class="desInfoStands" >
+                                <InfoStands :selPab="idP1"/>
                             </div>
                         </div>
                     </transition>
@@ -26,6 +26,9 @@
                             <DesplePabellones :pabNom="nomP2" :idProp="idPabe2" :variMost="vM2" :idRelacMap="idP2" :despleg="DesplegP2"/>
                             <div v-if="HayZoomActivo && DesplegP2" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
                                 <LeyendaPuestos :leMost="leDataP2"/>
+                            </div>
+                            <div v-if="HayZoomActivo && DesplegP2" class="desInfoStands" >
+                                <InfoStands :selPab="idP2"/>
                             </div>
                         </div>
                     </transition>
@@ -45,6 +48,9 @@
                             <DesplePabellones :pabNom="nomP4" :idProp="idPabe4" :variMost="vM4" :idRelacMap="idP4" :despleg="DesplegP4"/>
                             <div v-if="HayZoomActivo && DesplegP4" class="desLeyenda" > <!-- Si el zoom está activo y en el caso de que el zoom sea sobre el pabellón 4 se mostrará el componente -->
                                 <LeyendaPuestos :leMost="leDataP4"/>
+                            </div>
+                            <div v-if="HayZoomActivo && DesplegP4" class="desInfoStands" >
+                                <InfoStands :selPab="idP4"/>
                             </div>
                         </div>
                     </transition>

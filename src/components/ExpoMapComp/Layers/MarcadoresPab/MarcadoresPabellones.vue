@@ -1,9 +1,9 @@
 <template>
 	<g id="MarcadoresPabellones">
 		<MPGrandes v-if="MMGrandes"/>
-		<Pabellon1Marc  v-if="false" />
-		<Pabellon2Marc  v-if="false" />
-		<Pabellon4Marc  v-if="false" />
+		<Pabellon1Marc />
+		<Pabellon2Marc />
+		<Pabellon4Marc />
 
 	</g>
 </template>

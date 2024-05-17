@@ -4,10 +4,24 @@
             <p>Info Stands</p>
         </div>
         <div class="cueInfoStand">
-            <div v-for="ift in DStandsPabellones.pab1" :key="ift.id" :id="ift.id" class="standsPab1Class">
-                <IconFlechaIzq class="flecha"/>
-                <p class="textoFT">{{ ift.nombre }}</p>
-            </div>
+            <template v-if="selPab === 'bp1'">
+                <div v-for="ift in DStandsPabellones.pab1" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                    <IconFlechaIzq class="flecha"/>
+                    <p class="textoFT">{{ ift.nombre }}</p>
+                </div>
+            </template>
+            <template v-if="selPab === 'bp2'">
+                <div v-for="ift in DStandsPabellones.pab2" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                    <IconFlechaIzq class="flecha"/>
+                    <p class="textoFT">{{ ift.nombre }}</p>
+                </div>
+            </template>
+            <template v-if="selPab === 'bp4'">
+                <div v-for="ift in DStandsPabellones.pab4" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                    <IconFlechaIzq class="flecha"/>
+                    <p class="textoFT">{{ ift.nombre }}</p>
+                </div>
+            </template>
         </div>
 	</div>
 </template>
@@ -20,6 +34,7 @@ import IconFlechaIzq from '../Iconos/IconFlechaIzq.vue'
 export default {
 	name: 'InfoStands',
     props: {
+        selPab: String,
     },
     methods: {
 		...mapActions([
