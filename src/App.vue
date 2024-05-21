@@ -29,6 +29,8 @@
 
 
 	--build-color-event-hover: #149f94;
+	--build-color-stands-hover: #1e6b59;
+
 
 	--build-sombra-base: drop-shadow( 1px 0px 10px #000000);
 	--build-transicion-principal: 0.4s cubic-bezier(0, 0.02, 1, 1.01);

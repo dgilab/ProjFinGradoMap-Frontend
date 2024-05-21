@@ -1,7 +1,7 @@
 <template>
 	<g id="standsp1">
-		<polygon v-for="pol in stands.polygons" :key="pol.points" :id="pol.id" :data-name="pol.data_name" class="cls_2" :points="pol.points" @click="selStand($event)"/>
-		<path v-for="pat in stands.paths" :key="pat.d" :id="pat.id" :data-name="pat.data_name" class="cls_2" :d="pat.d" @click="selStand($event)"/>
+		<polygon v-for="pol in stands.polygons" :key="pol.points" :id="pol.id" :data-name="pol.data_name" class="cls_2 spc1" :points="pol.points" @click="selStand($event)"/>
+		<path v-for="pat in stands.paths" :key="pat.d" :id="pat.id" :data-name="pat.data_name" class="cls_2 spc1" :d="pat.d" @click="selStand($event)"/>
 	</g>
 </template>
 
@@ -28,6 +28,9 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.spc1:hover{
+	fill: var(--build-color-stands-hover);
+}
 
 </style>
