@@ -28,9 +28,7 @@ export default {
             'invertirValorVar',
         ]),
         aplicarInvertir(e){
-            console.log(this.despleg)
             if(this.despleg){
-                // console.log("w3")
                 this.invertirValorVar(e)
             }
         }

@@ -42,7 +42,6 @@ export default {
 }
 
 .GlobalLayer{
-
 	width: 60%;
 }
 .MapaExpojoveNivel2{

@@ -918,14 +918,15 @@ export default createStore({
 			
 			var escalado = 2.5
 			
-			var puntos = {
+			var puntos_defecto = {
 				bp1: { x: 2.30, y: 2.21 },
 				bp2: { x: 3.00, y: 2.21 },
 				bp3: { x: 2.30, y: 3.19 },
 				bp4: { x: 3.00, y: 3.19 }
 			}
 			var pbSVal = pabSelected.id
-			var puntoSelect = puntos[pbSVal]
+
+			var puntoSelect = puntos_defecto[pbSVal]
 			
 			var nX = -cX * (escalado - puntoSelect.x)
 			var nY = -cY * (escalado - puntoSelect.y)
