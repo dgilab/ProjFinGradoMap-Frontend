@@ -761,6 +761,8 @@ export default createStore({
 
 		desplegado: false,
 
+		usoCommit: false,
+
 
 	},
 	mutations: {
@@ -842,6 +844,9 @@ export default createStore({
 				}
 			}
 		},
+		usoCommit(state){
+			state.usoCommit = !state.usoCommit
+		}
 
 	},
 	actions: {
@@ -857,9 +862,7 @@ export default createStore({
 		},
 		eventHover({ commit }, e) {
 			commit('activarHover', !this.state.hoverActivo)
-			// commit('activarHover', hoverActivo)
 			e.target.classList.toggle('hover_Base', this.state.hoverActivo) // va añadiendose o quitandose dependiendo si se hace hover
-			// e.target.classList.add('hover_Base') // va añadiendose o quitandose dependiendo si se hace hover
 
 		},
 		mostrarInteres({ commit }, e) {
@@ -971,13 +974,6 @@ export default createStore({
 		zoomOut({ commit }, e){ // EN DESARROLLO
 			var mapa = this.state.referenciaSVGglob
 			e.target
-			// console.log(e)
-			// var pabSelected
-			// pabSelected = mapa.getElementById(e);
-			// console.log(pabSelected)
-			// console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
-			// var pbSVal = pabSelected.id
-			// console.log("zoomOut")
 			commit('zoomed', false);
 			mapa.style.transform = '';
 			setTimeout(() => {
@@ -990,41 +986,31 @@ export default createStore({
 			commit('habilitarEventosPB2')
 			commit('habilitarEventosPB3')
 			commit('habilitarEventosPB4')
-			// console.log(this.state.MarcadoresGlobGrand.MP1.mostrado)
 		},
 		invertFlecha({commit}, e){
-			// console.log(e)
 			e.target
 			commit('invertirEstado', this.state.desP1)
 			commit('invertirEstado', this.state.desP2)
 			commit('invertirEstado', this.state.desP3)
 			commit('invertirEstado', this.state.desP4)
-
-			// const id = e.target.dataset.id
-			// var ids = {
-			// 	bp1: 'fleP1',
-			// 	bp2: 'fleP2',
-			// 	bp3: 'fleP3',
-			// 	bp4: 'fleP4',
-			// }
-			// if(this.state.desP1==false && this.state.desP2==false && this.state.desP3==false && this.state.desP4==false){
-			// 	for(var i in ids){
-			// 		var flechas = document.getElementById(ids[i])
-			// 		flechas.classList.remove('rotar')
-			// 	}
-			// } else {
-			// 	const flecha = document.getElementById(ids[id])
-			// 	console.log(flecha)
-			// 	flecha.classList.add('rotar')
-			// }
-			
 		},
-		// desplegarFrm({commit}, e){
-
-
-		// 	console.log(e)
-		// 	console.log(commit)
-		// },
+		mostrarMarcStands({commit}, id){
+			commit('usoCommit')
+			var idMod = id.replace('_d', '')
+			let marcStand = document.getElementById(idMod)
+			if (marcStand.classList.contains('oculto')) {
+				marcStand.classList.remove('oculto');
+				marcStand.classList.add('visible');
+	
+				setTimeout(() => {
+					marcStand.classList.remove('visible');
+					marcStand.classList.add('oculto');
+				}, 800);
+			} else {
+				marcStand.classList.remove('visible');
+				marcStand.classList.add('oculto');
+			}
+		}
 
 	},
 	getters: {

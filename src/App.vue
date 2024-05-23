@@ -152,4 +152,16 @@ p{
     padding: 0;
 }
 
+.oculto {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s;
+}
+
+.visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s;
+}
+
 </style>

@@ -5,19 +5,19 @@
         </div>
         <div class="cueInfoStand">
             <template v-if="selPab === 'bp1'">
-                <div v-for="ift in DStandsPabellones.pab1" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                <div v-for="ift in DStandsPabellones.pab1" :key="ift.id" :id="ift.id" class="standsPab1Class" @click="mostrarMarcStands(ift.id)">
                     <IconFlechaIzq class="flecha"/>
                     <p class="textoFT">{{ ift.nombre }}</p>
                 </div>
             </template>
             <template v-if="selPab === 'bp2'">
-                <div v-for="ift in DStandsPabellones.pab2" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                <div v-for="ift in DStandsPabellones.pab2" :key="ift.id" :id="ift.id" class="standsPab1Class" @click="mostrarMarcStands(ift.id)">
                     <IconFlechaIzq class="flecha"/>
                     <p class="textoFT">{{ ift.nombre }}</p>
                 </div>
             </template>
             <template v-if="selPab === 'bp4'">
-                <div v-for="ift in DStandsPabellones.pab4" :key="ift.id" :id="ift.id" class="standsPab1Class">
+                <div v-for="ift in DStandsPabellones.pab4" :key="ift.id" :id="ift.id" class="standsPab1Class" @click="mostrarMarcStands(ift.id)">
                     <IconFlechaIzq class="flecha"/>
                     <p class="textoFT">{{ ift.nombre }}</p>
                 </div>
@@ -38,6 +38,7 @@ export default {
     },
     methods: {
 		...mapActions([
+            'mostrarMarcStands',
         ]),
 	},
     computed: {
