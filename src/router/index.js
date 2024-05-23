@@ -7,8 +7,8 @@ const routes = [
     component: () => import('../views/HomeView.vue')
   },
   {
-    path: '/admin',
-    name: 'admin',
+    path: '/form-incidencias',
+    name: 'form-incidencias',
     component: () => import('../views/HomeView.vue')
   },
 ]

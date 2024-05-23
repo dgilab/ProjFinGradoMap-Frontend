@@ -30,6 +30,6 @@ export default {
 }
 
 .formularioMapa{
-	z-index: 9999;
+	z-index: 999 !important;
 }
 </style>

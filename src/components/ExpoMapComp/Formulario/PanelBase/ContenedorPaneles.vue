@@ -2,6 +2,7 @@
     <div class="contenedor_paneles">
         <PanelCuerpoPabellones/>
         <PanelCuerpoInteres/>
+        <!-- <PanelNotificarError/> -->
 
     </div>
 </template>
@@ -12,12 +13,14 @@ import { mapActions } from 'vuex'
 
 import PanelCuerpoPabellones from './Paneles/PanelCuerpoPabellones'
 import PanelCuerpoInteres from './Paneles/PanelCuerpoInteres'
+// import PanelNotificarError from './Paneles/PanelNotificarError'
 
 export default {
 	name: 'ContenedorPaneles',
     components: {
         PanelCuerpoPabellones,
         PanelCuerpoInteres,
+        // PanelNotificarError,
 	},
     methods: {
 		...mapActions(['mostrarInteres'])
