@@ -50,42 +50,43 @@ export default {
 						<option value="colores">Error de colores</option>
 						<option value="dimensiones">Error de dimensiones</option>
 						<option value="Terminal">Error del Terminal</option>
-						<option value="otro">Otro</option>
-					</select>
-					<textarea id="swal-textarea" class="swal2-textarea" style="display: none;" maxlength="100"></textarea>`,
-					// '<input id="swal-input1" class="swal2-input" placeholder="Nombre">' +
-					// '<input id="swal-input2" class="swal2-input" placeholder="Descripción">',
+					</select>`,
 				showCancelButton: true,
 				confirmButtonText: 'Enviar',
 				cancelButtonText: 'Cancelar',
 				showLoaderOnConfirm: true,
 				preConfirm: () => {
-					// this.nombre = Swal.getPopup().querySelector('#swal-input1').value;
-					// this.descripcion = Swal.getPopup().querySelector('#swal-input2').value;
 					return new Promise((resolve, reject) => {
-						const seleccion = document.getElementById('swal-selector').value;
-						if (seleccion === 'otro') {
-							const texto = document.getElementById('swal-textarea').value;
-							console.log(texto)
-							console.log((resolve, reject)) // llamar api para enviar el correo 
-						} else {
-							console.log(seleccion)
-							console.log((resolve, reject))
-						}
-					})
-
+						const seleccion = document.getElementById('swal-selector').value
+						this.$http.post('/bugs', { bug: seleccion })
+							.then(() => {
+								resolve()
+							})
+							.catch(error => {
+								console.error('Error al enviar la incidencia:', error)
+								reject()
+							})
+						})
+					}
+				}).then((result) => {
+					Swal.hideLoading();
+					if (result.isConfirmed) {
+						Swal.fire({
+							title: 'Notificado correctamente',
+							icon: 'success',
+							showConfirmButton: false,
+							timer: 1500
+						});
+					} else if (result.dismiss === Swal.DismissReason.cancel) {
+						Swal.fire({
+							title: 'Cancelado',
+							icon: 'error',
+							showConfirmButton: false,
+							timer: 1500
+						});
+					}
 				}
-			}).then((result) => {
-				if (result.isConfirmed) {
-					Swal.fire({
-						title: 'Cargando',
-						allowOutsideClick: false,
-						onBeforeOpen: () => {
-							Swal.showLoading();
-						}
-					});
-				}
-			})
+			)
 		}
 	}
 }

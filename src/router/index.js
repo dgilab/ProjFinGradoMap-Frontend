@@ -7,9 +7,9 @@ const routes = [
     component: () => import('../views/HomeView.vue')
   },
   {
-    path: '/form-incidencias',
-    name: 'form-incidencias',
-    component: () => import('../views/HomeView.vue')
+    path: '/bugs',
+    name: 'bugs-view',
+    component: () => import('../views/BugsView.vue')
   },
 ]
 
