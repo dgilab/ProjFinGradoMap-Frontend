@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<h1>Reported Bugs</h1>
+		<h1>Bugs Reportados</h1>
 		<ul>
 			<li v-for="bug in bugs" :key="bug.id">{{ bug.bug }}</li>
 		</ul>

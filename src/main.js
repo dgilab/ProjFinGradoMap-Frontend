@@ -8,7 +8,7 @@ const app = createApp(App);
 
 // Configuración de Axios
 app.config.globalProperties.$http = axios.create({
-  baseURL: 'http://localhost:3000'
+    baseURL: 'http://localhost:3000'
 });
 
 app.use(store);
